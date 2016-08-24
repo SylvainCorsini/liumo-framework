@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Sylvain
- * Date: 23/08/2016
- * Time: 21:35
- */
 
-namespace Core\Event;
+namespace Core;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;

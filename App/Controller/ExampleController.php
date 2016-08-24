@@ -1,25 +1,24 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Sylvain
- * Date: 23/08/2016
- * Time: 21:19
- */
-
 namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Core\ControllerCore;
+
 use App\Model\ExampleModel;
 
-class ExampleController
+class ExampleController extends ControllerCore
 {
     public function index(Request $request, $year)
     {
-        $leapyear = new ExampleModel();
-        if ($leapyear->isLeapYear($year)) {
-            return new Response('Yep, this is a leap year!');
+        if (null === $year) {
+            $year = date('Y');
         }
-        return new Response('Nope, this is not a leap year.');
+        if  (0 == $year % 400 || (0 == $year % 4 && 0 != $year % 100)) {
+            $message = 'Yep, this is a leap year!';
+        } else {
+            $message = 'Nope, this is not a leap year.';
+        }
+        return new Response($message);
     }
 }
