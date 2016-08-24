@@ -11,4 +11,5 @@ There is three folders:
     - Override: this folder is empty. It was made for you to allow you to override the core files. Do not do this except if you know what you do. (Not working)
 
 # Next update
-In the next update, the class to create views will be added. May be with a famous template as Twig or Blade (Laravel's template).
+- Template Creator
+- Database Builder
