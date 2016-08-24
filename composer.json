@@ -1,16 +1,31 @@
 {
+  "name": "SylvainCorsini/liumo-framework",
+  "description": "The PHP tiny framework by Sylvain Corsini",
+  "keyworks": [
+    "Framework",
+    "Liumo"
+  ],
+  "licence": "MIT",
+  "authors": [
+    {
+      "name": "Sylvain Corsini",
+      "email": "sylvain.corsini@gmail.com"
+    }
+  ],
   "require": {
-    "symfony/class-loader": "2.1.*",
-    "symfony/http-foundation": "2.1.*",
-    "symfony/routing": "2.1.*",
-    "symfony/http-kernel": "2.1.*",
-    "symfony/event-dispatcher": "2.1.*",
-    "symfony/dependency-injection": "2.1.*"
+    "php": ">=5.5.9",
+    "symfony/class-loader": "3.1.*",
+    "symfony/http-foundation": "3.1.*",
+    "symfony/routing": "3.1.*",
+    "symfony/http-kernel": "3.1.*",
+    "symfony/event-dispatcher": "3.1.*",
+    "symfony/dependency-injection": "3.1.*"
   },
   "autoload": {
     "psr-0": {
-      "Core": "Src/",
-      "App": ""
+      "App": "",
+      "Src": "",
+      "Core": "Src"
     }
   }
 }
