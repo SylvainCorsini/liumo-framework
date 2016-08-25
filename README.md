@@ -18,7 +18,7 @@ RainTPL is an easy template engine for PHP that enables designers and developers
 RainTPL is fully integrated into Liumo. You can use it in few lines (show ExampleController for more information).
 
 ## Features
-* Easy for designers, only 10 tags, *{$variable}*, *{#constant#}*, *{include}*, *{loop}*, *{if}*, *{*\**comment*\**}*, *{noparse}*, *{function}*
+* Easy for designers, only 10 tags, *{$variable}*, *{#constant#}*, *{include="filename"}*, *{loop}*, *{if}*, *{*\**comment*\**}*, *{noparse}*, *{function}*
 * Easy for developers, 5 methods to load and draw templates.
 * Powerful, modifier and operation with variables
 * Extensible, load plugins and register new tags
