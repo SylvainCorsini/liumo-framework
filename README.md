@@ -1,13 +1,14 @@
 # Liumo Framework
-A very minimalist framework. Liumo is lightweight, fast but still powerful.
+A very minimalist framework. Liumo is lightweight, fast and still powerful.
 
 It's based on some Symfony components (see composer.json).
 
 There is three folders:
- - Public: which can contains css, js, imgs... It's the target of the server...
- - App: which contains the MVC structure, you can edit and add files. (Only Controller and Model works at this moment)
+ - Public: which can contains css, js, imgs... You have to target your server to this folder.
+ - App: which contains the MVC structure and the routes file. Your application will be in this folder.
  - Src: which contains conf et primary skeleton of the framework:
-    - Core: primary files.
+    - Core: primary files. Do not edit them except if you know what you do.
+    - Config: config files for the framework. It is highly recommended that you change it.
 
 # Rain Template Engine
 RainTPL is the official template engine of Liumo!
