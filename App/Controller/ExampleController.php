@@ -19,6 +19,9 @@ class ExampleController extends ControllerCore
         } else {
             $message = 'Nope, this is not a leap year.';
         }
-        return new Response($message);
+        $this->template->assign('year', $year);
+        $this->template->assign('message', $message);
+        $this->template->draw('ExampleView');
+        return new Response();
     }
 }
