@@ -1,5 +1,5 @@
 # Liumo Framework
-A very minimalist framework by Sylvain Corsini.
+A very minimalist framework. Liumo is lightweight, fast but still powerful.
 
 It's based on some Symfony components (see composer.json).
 
@@ -10,18 +10,19 @@ There is three folders:
     - Core: primary files.
 
 # Rain Template Engine
-RainTPL is the official Template Engine of Liumo!
-By Federico Ulfo and a lot awesome contributors!
+RainTPL is the official template engine of Liumo!
+Made by Federico Ulfo and a lot of awesome contributors!
 
 RainTPL is an easy template engine for PHP that enables designers and developers to work better together, it loads HTML template to separate the presentation from the logic.
 
-Features
---------
-* Easy for designers, only 10 tags, *{$variable}*, *{#constant#}*, *{include}*, *{loop}*, *{if}*, *{*comment*}*, *{noparse}*, *{function}*
+RainTPL is fully integrated into Liumo. You can use it in few lines (show ExampleController for more information).
+
+## Features
+* Easy for designers, only 10 tags, *{$variable}*, *{#constant#}*, *{include}*, *{loop}*, *{if}*, *{*\**comment*\**}*, *{noparse}*, *{function}*
 * Easy for developers, 5 methods to load and draw templates.
 * Powerful, modifier and operation with variables
 * Extensible, load plugins and register new tags
 * Secure, sandbox with blacklist.
 
 # Next update
-- Pixie as the Official Query Builder!
+- Pixie as the official query builder!
