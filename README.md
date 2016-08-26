@@ -1,5 +1,5 @@
-# Liumo Framework
-A very minimalist framework. Liumo is lightweight, fast and still powerful.
+# Minimis Framework
+A very minimalist PHP framework. Minimis means light in Latin because it is: only 148ko!
 
 It's based on some Symfony components (see composer.json).
 
@@ -11,19 +11,20 @@ There is three folders:
     - Config: config files for the framework. It is highly recommended that you change it.
 
 # Rain Template Engine
-RainTPL is the official template engine of Liumo!
+RainTPL is the official template engine of Minimis!
 Made by Federico Ulfo and a lot of awesome contributors!
 
-RainTPL is an easy template engine for PHP that enables designers and developers to work better together, it loads HTML template to separate the presentation from the logic.
+It is an easy template engine for PHP that enables designers and developers to work better together, it loads HTML template to separate the presentation from the logic.
 
-RainTPL is fully integrated into Liumo. You can use it in few lines (show ExampleController for more information).
+It is integrated into Minimis. You can use it in few lines (show ExampleController for more information).
 
 ## Features
 * Easy for designers, only 10 tags, *{$variable}*, *{#constant#}*, *{include="filename"}*, *{loop="array"}{/loop}*, *{if="expression"}{else}{/if}*, *{*\* \**}*, *{ignore}{/ignore}*, *{noparse}{/noparse}*, *{function="function name}*
-* Easy for developers, 5 methods to load and draw templates.
-* Powerful, modifier and operation with variables
-* Extensible, load plugins and register new tags
+* Easy for developers, only 1 method to call for drawing templates.
+* Powerful, modifier and operation with variables.
+* Extensible, load plugins and register new tags. (not enabled actually)
 * Secure, sandbox with blacklist.
 
 # Next update
 - Pixie as the official query builder!
+- Fully integration of Rain into Minimis (Plugins).
