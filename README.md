@@ -28,5 +28,12 @@ It is integrated into Minimis. You can use it in few lines (show ExampleControll
 * Secure, sandbox with blacklist.
 
 # Next update
-- Change Pixie to no longer need to always specify the table.
-- Fully integration of Rain into Minimis (Plugins and Tags).
+- Add relationships methods (oneToOne, oneToMany, manyToMany) to the query builder
+- Add plugins loader to template engine
+- Add tags to template engine as {!$var} no autoescaping
+- Add forms builder (symfony components)
+- Add CSRF protection (symfony components)
+- Add authentication functionnalities
+- Add validation functionnalities
+- Add translations functionnalities
+- Add debug functionnalities with serializer (laravel components)
