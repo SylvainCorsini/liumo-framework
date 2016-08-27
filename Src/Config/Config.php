@@ -2,9 +2,19 @@
 
 const DEVELOPMENT_ENVIRONMENT = true;
 
-const DB_HOST = "127.0.0.1";
-const DB_USER = "root";
-const DB_PASSWORD = "root";
-const DB_NAME = "liumo";
+const DB_DRIVER = 'mysql';
+const DB_CONFIG = array(
+    'driver'    => DB_DRIVER,
+    'host'      => 'localhost',
+    'database'  => 'minimis',
+    'username'  => 'root',
+    'password'  => '',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'options'   => array(
+        PDO::ATTR_TIMEOUT => 5,
+        PDO::ATTR_EMULATE_PREPARES => true,
+    )
+);
 
 const PAGINATE_LIMIT = 5;

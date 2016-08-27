@@ -10,6 +10,8 @@ class ExampleController extends ControllerCore
 {
     public function index(Request $request, $year)
     {
+        $exampleModel = new ExampleModel();
+        $result = $exampleModel->db->table('example')->select('*')->get();
         if (null === $year) {
             $year = date('Y');
         }
@@ -20,6 +22,7 @@ class ExampleController extends ControllerCore
         }
         $this->view->assign('year', $year)
             ->assign('message', $message)
+            ->assign('users', $result)
             ->draw('ExampleView');
         return new Response();
     }

@@ -12,5 +12,9 @@ use Core\ModelCore;
 
 class ExampleModel extends ModelCore
 {
-    //
+    public function __construct()
+    {
+        parent::__construct();
+        $this->db->table('example');
+    }
 }
