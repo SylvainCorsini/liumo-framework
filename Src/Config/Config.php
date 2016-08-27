@@ -16,5 +16,3 @@ const DB_CONFIG = array(
         PDO::ATTR_EMULATE_PREPARES => true,
     )
 );
-
-const PAGINATE_LIMIT = 5;
