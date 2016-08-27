@@ -26,5 +26,5 @@ It is integrated into Minimis. You can use it in few lines (show ExampleControll
 * Secure, sandbox with blacklist.
 
 # Next update
-- Pixie as the official query builder!
-- Fully integration of Rain into Minimis (Plugins).
+- Change Pixie to no longer need to always specify the table.
+- Fully integration of Rain into Minimis (Plugins and Tags).
