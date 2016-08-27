@@ -1,6 +1,7 @@
 <?php
 
 const DEVELOPMENT_ENVIRONMENT = true;
+const BASE_URL = __DIR__.'/../';
 
 const DB_DRIVER = 'mysql';
 const DB_CONFIG = array(

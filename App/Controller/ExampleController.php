@@ -3,7 +3,7 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-// Facades
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use QB;
 use TPL;
 
@@ -25,5 +25,10 @@ class ExampleController
             ->assign('users', $result)
             ->draw('ExampleView');
         return new Response();
+    }
+
+    public function test(Request $request)
+    {
+        return new RedirectResponse(BASE_URL);
     }
 }
