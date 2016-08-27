@@ -1,9 +1,9 @@
 {
-  "name": "SylvainCorsini/liumo-framework",
+  "name": "scorsi/minimis",
   "description": "The PHP tiny framework by Sylvain Corsini",
   "keyworks": [
     "Framework",
-    "Liumo"
+    "Minimis"
   ],
   "licence": "MIT",
   "authors": [
@@ -13,7 +13,7 @@
     }
   ],
   "require": {
-    "php": ">=5.5.9",
+    "php": ">=5.6.*",
     "symfony/class-loader": "3.1.*",
     "symfony/http-foundation": "3.1.*",
     "symfony/routing": "3.1.*",
