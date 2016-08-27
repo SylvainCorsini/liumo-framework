@@ -3,11 +3,11 @@ A very minimalist PHP framework. Minimis means light in Latin because it is: onl
 
 It's based on some Symfony components (see composer.json).
 
-Go to the wiki (https://github.com/scorsi/minimis/wiki) to see all docs.
+Go to the wiki (https://github.com/scorsi/minimis/wiki) to see all docs. And learn how Minimis works.
 
 There is three folders:
  - Public: which can contains css, js, imgs... You have to target your server to this folder.
- - App: which contains the MVC structure and the routes file. Your application will be in this folder.
+ - App: which contains the View-Controller structure and the routes file. Your application will be in this folder.
  - Src: which contains conf et primary skeleton of the framework:
     - Core: primary files. Do not edit them except if you know what you do.
     - Config: config files for the framework. It is highly recommended that you change it.
