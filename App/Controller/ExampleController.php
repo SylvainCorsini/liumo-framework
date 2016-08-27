@@ -3,10 +3,11 @@ namespace App\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Core\ControllerCore;
+// Facades
 use QB;
+use TPL;
 
-class ExampleController extends ControllerCore
+class ExampleController
 {
     public function index(Request $request, $year)
     {
@@ -19,7 +20,7 @@ class ExampleController extends ControllerCore
         } else {
             $message = 'Nope, this is not a leap year.';
         }
-        $this->view->assign('year', $year)
+        TPL::assign('year', $year)
             ->assign('message', $message)
             ->assign('users', $result)
             ->draw('ExampleView');

@@ -16,6 +16,7 @@ use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
 use Pixie\Connection;
+use Core\Rain\Rain;
 
 class Kernel implements HttpKernelInterface
 {
@@ -23,15 +24,36 @@ class Kernel implements HttpKernelInterface
     protected $resolver;
     protected $dispatcher;
     protected $connection;
+    protected $template;
 
+    /**
+     * Kernel constructor.
+     * @param EventDispatcher $dispatcher
+     * @param UrlMatcherInterface $matcher
+     * @param ControllerResolverInterface $resolver
+     */
     public function __construct(EventDispatcher $dispatcher, UrlMatcherInterface $matcher, ControllerResolverInterface $resolver)
     {
         $this->matcher = $matcher;
         $this->resolver = $resolver;
         $this->dispatcher = $dispatcher;
-        $this->connection = new Connection(DB_DRIVER, DB_CONFIG, 'QB');
+        $this->connection = new Connection(DB_DRIVER, DB_CONFIG, 'QB'); // Create the QB Facade
+        $this->template = new Rain('TPL'); // Create the TPL Facade
+        \TPL::objectConfigure(array(
+            'tpl_dir'   =>  '../App/View',
+            'cache_dir' =>  '../Cache',
+            'tpl_ext' => 'rain.php',
+            'php_enabled' => true
+        )); // Configure the TPL Facade
     }
 
+    /**
+     * Method to handle request
+     * @param Request $request
+     * @param int $type
+     * @param bool $catch
+     * @return Response
+     */
     public function handle(Request $request, $type = HttpKernelInterface::MASTER_REQUEST, $catch = true)
     {
         $this->matcher->getContext()->fromRequest($request);

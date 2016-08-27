@@ -44,6 +44,13 @@ class Rain
     // tags registered by the developers
     protected static $registered_tags = array();
 
+    public function __construct($alias = null)
+    {
+        if ($alias) {
+            class_alias('Core\\Rain\\AliasFacade', $alias);
+        }
+    }
+
     public function __call($method, $args)
     {
         return self::$method($args[0]);
