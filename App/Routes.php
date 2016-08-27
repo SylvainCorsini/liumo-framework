@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Sylvain
- * Date: 23/08/2016
- * Time: 20:38
- */
 
 use Symfony\Component\Routing\RouteCollection;
 use Symfony\Component\Routing\Route;

@@ -1,11 +1,12 @@
 <html>
 <body>
     <?php echo 'test'; ?>
+    {function="date('Y')"}
     <h1>{$year}</h1>
     <p>{$message}</p>
     <ul>
         {loop="$users"}
-            <li>{$value->firstname} {$value->lastname}: {$value->age}</li>
+            <li>{$counter}: {$value->firstname} {$value->lastname} {$value->age}yo</li>
         {/loop}
     </ul>
 </body>

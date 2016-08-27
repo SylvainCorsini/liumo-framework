@@ -4,14 +4,13 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Core\ControllerCore;
-use App\Model\ExampleModel;
+use QB;
 
 class ExampleController extends ControllerCore
 {
     public function index(Request $request, $year)
     {
-        $exampleModel = new ExampleModel();
-        $result = $exampleModel->db->table('example')->select('*')->get();
+        $result = QB::table('example')->select('*')->get();
         if (null === $year) {
             $year = date('Y');
         }

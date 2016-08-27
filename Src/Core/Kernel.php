@@ -15,18 +15,21 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
+use Pixie\Connection;
 
 class Kernel implements HttpKernelInterface
 {
     protected $matcher;
     protected $resolver;
     protected $dispatcher;
+    protected $connection;
 
     public function __construct(EventDispatcher $dispatcher, UrlMatcherInterface $matcher, ControllerResolverInterface $resolver)
     {
         $this->matcher = $matcher;
         $this->resolver = $resolver;
         $this->dispatcher = $dispatcher;
+        $this->connection = new Connection(DB_DRIVER, DB_CONFIG, 'QB');
     }
 
     public function handle(Request $request, $type = HttpKernelInterface::MASTER_REQUEST, $catch = true)
@@ -41,7 +44,7 @@ class Kernel implements HttpKernelInterface
         } catch (ResourceNotFoundException $e) {
             $response = new Response('Not Found', 404);
         } catch (\Exception $e) {
-            $response = new Response('An error occurred', 500);
+            $response = new Response('An error occurred: '.$e, 500);
         }
 
         $this->dispatcher->dispatch('response', new ResponseEvent($response, $request));
