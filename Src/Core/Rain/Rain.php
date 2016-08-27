@@ -77,8 +77,7 @@ class Rain
 
         if ($toString)
             return $html;
-        else
-            echo $html;
+        echo $html;
         return null;
     }
 

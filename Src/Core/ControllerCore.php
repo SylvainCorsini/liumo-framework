@@ -11,8 +11,10 @@ class ControllerCore
     {
         $this->view = new Rain();
         $this->view->objectConfigure(array(
-            "tpl_dir"   =>  "../App/View",
-            "cache_dir" =>  "../Cache"
+            'tpl_dir'   =>  '../App/View',
+            'cache_dir' =>  '../Cache',
+            'tpl_ext' => 'rain.php',
+            'php_enabled' => true
         ));
     }
 }
