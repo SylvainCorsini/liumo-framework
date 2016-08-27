@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Sylvain
- * Date: 23/08/2016
- * Time: 21:01
- */
-
 namespace Core;
 
 use Symfony\Component\HttpFoundation\Request;
@@ -15,7 +8,7 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Pixie\Connection;
+use Core\Pixie\Connection;
 use Core\Rain\Rain;
 
 class Kernel implements HttpKernelInterface

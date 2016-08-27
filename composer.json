@@ -18,7 +18,7 @@
     "symfony/routing": "3.1.*",
     "symfony/http-kernel": "3.1.*",
     "symfony/event-dispatcher": "3.1.*",
-    "usmanhalalit/pixie": "2.*@dev"
+    "usmanhalalit/viocon": "1.0.*@dev"
   },
   "autoload": {
     "psr-0": {
