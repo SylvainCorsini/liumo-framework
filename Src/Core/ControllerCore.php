@@ -5,12 +5,12 @@ use Core\Rain\Rain;
 
 class ControllerCore
 {
-    public $template;
+    public $view;
 
     public function __construct()
     {
-        $this->template = new Rain();
-        $this->template->objectConfigure(array(
+        $this->view = new Rain();
+        $this->view->objectConfigure(array(
             "tpl_dir"   =>  "../App/View",
             "cache_dir" =>  "../Cache"
         ));

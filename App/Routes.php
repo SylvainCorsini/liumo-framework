@@ -6,12 +6,13 @@
  * Time: 20:38
  */
 
-use Symfony\Component\Routing;
+use Symfony\Component\Routing\RouteCollection;
+use Symfony\Component\Routing\Route;
 
-$routes = new Routing\RouteCollection();
-$routes->add('leap_year', new Routing\Route('/{year}', array(
+$routes = new RouteCollection();
+$routes->add('home', new Route('/{year}', array(
     'year' => null,
-    '_controller' => 'App\\Controller\\ExampleController::index',
+    '_controller' => 'ExampleController::index',
 )));
 
 return $routes;

@@ -35,10 +35,8 @@ class Kernel implements HttpKernelInterface
 
         try {
             $request->attributes->add($this->matcher->match($request->getPathInfo()));
-
             $controller = $this->resolver->getController($request);
             $arguments = $this->resolver->getArguments($request, $controller);
-
             $response = call_user_func_array($controller, $arguments);
         } catch (ResourceNotFoundException $e) {
             $response = new Response('Not Found', 404);

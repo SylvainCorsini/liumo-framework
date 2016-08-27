@@ -4,7 +4,6 @@ namespace App\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Core\ControllerCore;
-
 use App\Model\ExampleModel;
 
 class ExampleController extends ControllerCore
@@ -19,9 +18,9 @@ class ExampleController extends ControllerCore
         } else {
             $message = 'Nope, this is not a leap year.';
         }
-        $this->template->assign('year', $year);
-        $this->template->assign('message', $message);
-        $this->template->draw('ExampleView');
+        $this->view->assign('year', $year)
+            ->assign('message', $message)
+            ->draw('ExampleView');
         return new Response();
     }
 }

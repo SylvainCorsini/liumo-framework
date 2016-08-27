@@ -15,8 +15,8 @@ class Rain
     // variables
     public $var = array();
 
-    protected $config = array(),
-        $objectConf = array();
+    protected $config = array();
+    protected $objectConf = array();
 
     /**
      * Plugin container
@@ -43,6 +43,11 @@ class Rain
 
     // tags registered by the developers
     protected static $registered_tags = array();
+
+    public function __call($method, $args)
+    {
+        return self::$method($args[0]);
+    }
 
     /**
      * Draw the template
