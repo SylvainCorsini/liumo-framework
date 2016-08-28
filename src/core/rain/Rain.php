@@ -49,13 +49,13 @@ class Rain
      * @param null|string $alias
      * @param null|array $config
      */
-    public function __construct($alias = null, $config = null)
+    public function __construct($config = null, $alias = null)
     {
-        if (!empty($alias)) {
-            class_alias('Core\\Rain\\AliasFacade', $alias);
-        }
         if (!empty($config)) {
             self::configure($config);
+        }
+        if (!empty($alias)) {
+            class_alias('Core\\Rain\\AliasFacade', $alias);
         }
     }
 

@@ -31,12 +31,7 @@ class Kernel implements HttpKernelInterface
         $this->resolver = $resolver;
         $this->dispatcher = $dispatcher;
         $this->connection = new Connection(DB_DRIVER, DB_CONFIG, 'QB'); // Create the QB Facade
-        $this->template = new Rain('TPL', array( // Create and configure the TPL Facade
-            'tpl_dir'   =>  '../app/view',
-            'cache_dir' =>  '../cache',
-            'tpl_ext' => 'tpl.php',
-            'php_enabled' => true
-        ));
+        $this->template = new Rain(TPL_CONFIG, 'TPL'); // Create and configure the TPL Facade
     }
 
     /**

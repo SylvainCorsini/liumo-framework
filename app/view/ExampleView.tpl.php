@@ -1,6 +1,5 @@
 <html>
 <body>
-    <?php echo 'test'; ?>
     {function="date('Y')"}
     <h1>{$year}</h1>
     <p>{$message}</p>
