@@ -24,11 +24,5 @@ class ExampleController
             ->assign('message', $message)
             ->assign('users', $result)
             ->draw('ExampleView');
-        return new Response();
-    }
-
-    public function test(Request $request)
-    {
-        return new RedirectResponse(BASE_URL);
     }
 }

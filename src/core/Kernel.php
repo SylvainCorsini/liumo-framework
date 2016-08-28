@@ -30,7 +30,7 @@ class Kernel implements HttpKernelInterface
         $this->matcher = $matcher;
         $this->resolver = $resolver;
         $this->dispatcher = $dispatcher;
-        $this->connection = new Connection(DB_DRIVER, DB_CONFIG, 'QB'); // Create the QB Facade
+        $this->connection = new Connection(DB_DRIVER, DB_CONFIG, 'QB'); // Create and configure the QB Facade
         $this->template = new Rain(TPL_CONFIG, 'TPL'); // Create and configure the TPL Facade
     }
 
@@ -50,8 +50,11 @@ class Kernel implements HttpKernelInterface
             $controller = $this->resolver->getController($request);
             $arguments = $this->resolver->getArguments($request, $controller);
             $response = call_user_func_array($controller, $arguments);
+            if (empty($response)) {
+                $response = new Response();
+            }
         } catch (ResourceNotFoundException $e) {
-            $response = new Response('Not Found', 404);
+            $response = new Response('Not Found: '.$e, 404);
         } catch (\Exception $e) {
             $response = new Response('An error occurred: '.$e, 500);
         }
