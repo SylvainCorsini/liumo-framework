@@ -5,8 +5,6 @@ It's based on some Symfony components (see composer.json).
 
 Go to the wiki (https://github.com/scorsi/minimis/wiki) to see all docs. And learn how Minimis works.
 
-**Note: Have to do docs for TPL and QB.**
-
 ## Next update
 - Add relationships methods (oneToOne, oneToMany, manyToMany) to the query builder
 - Add plugins loader to template engine
