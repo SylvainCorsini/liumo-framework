@@ -24,3 +24,7 @@ Go to the wiki (https://github.com/scorsi/minimis/wiki) to see all docs. And lea
   - symfony/http-kernel create own http-kernel
   - symfony/http-foundation create own Request and Response objects
   - symfony/routing fork from nikic/FastRoute
+
+# License
+
+See on https://tldrlegal.com/license/x11-license the terms of the X11 license.
