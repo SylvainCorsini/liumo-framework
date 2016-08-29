@@ -8,8 +8,8 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Core\Pixie\Connection;
-use Core\Rain\Rain;
+use Core\QueryBuilder\Connection;
+use Core\TemplateEngine\TemplateEngine;
 
 class Kernel implements HttpKernelInterface
 {
@@ -31,7 +31,7 @@ class Kernel implements HttpKernelInterface
         $this->resolver = $resolver;
         $this->dispatcher = $dispatcher;
         $this->connection = new Connection(DB_DRIVER, DB_CONFIG, 'QB'); // Create and configure the QB Facade
-        $this->template = new Rain(TPL_CONFIG, 'TPL'); // Create and configure the TPL Facade
+        $this->template = new TemplateEngine(TPL_CONFIG, 'TPL'); // Create and configure the TPL Facade
     }
 
     /**
