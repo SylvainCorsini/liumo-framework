@@ -18,9 +18,9 @@
     "symfony/routing": "3.1.*",
     "symfony/http-kernel": "3.1.*",
     "symfony/event-dispatcher": "3.1.*",
-    "scorsi/template-engine": "dev-master",
-    "scorsi/query-builder": "dev-master",
-    "scorsi/container": "dev-master"
+    "scorsi/template-engine": "1.*",
+    "scorsi/query-builder": "1.*",
+    "scorsi/container": "1.*"
   },
   "autoload": {
     "psr-0": {
