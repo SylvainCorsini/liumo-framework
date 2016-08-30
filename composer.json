@@ -5,7 +5,8 @@
     "Framework",
     "Minimis"
   ],
-  "licence": "MIT",
+  "type": "project",
+  "license": "X11-license",
   "authors": [
     {
       "name": "Sylvain Corsini",
