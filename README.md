@@ -14,7 +14,6 @@ Go to the wiki (https://github.com/scorsi/minimis/wiki) to see all docs. And lea
 ## Next update
 - Add relationships methods (oneToOne, oneToMany, manyToMany) to the query builder
 - Add plugins loader to template engine
-- Add tags to template engine as {!$var} no autoescaping
 - Add forms builder (symfony components)
 - Add CSRF protection (symfony components)
 - Add authentication functionnalities
