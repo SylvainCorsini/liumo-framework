@@ -17,7 +17,8 @@
     "symfony/http-foundation": "3.1.*",
     "symfony/routing": "3.1.*",
     "symfony/http-kernel": "3.1.*",
-    "symfony/event-dispatcher": "3.1.*"
+    "symfony/event-dispatcher": "3.1.*",
+    "scorsi/template-engine": ""
   },
   "autoload": {
     "psr-0": {
