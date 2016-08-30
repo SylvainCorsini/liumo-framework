@@ -8,8 +8,8 @@ use Symfony\Component\Routing\Exception\ResourceNotFoundException;
 use Symfony\Component\HttpKernel\Controller\ControllerResolverInterface;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\HttpKernel\HttpKernelInterface;
-use Core\QueryBuilder\Connection;
-use Core\TemplateEngine\TemplateEngine;
+use Scorsi\QueryBuilder\Connection;
+use Scorsi\TemplateEngine\TemplateEngine;
 
 class Kernel implements HttpKernelInterface
 {
