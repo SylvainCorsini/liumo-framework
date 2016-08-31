@@ -1,4 +1,13 @@
 <?php
+
+/*
+ * Debug File
+ ************
+ *
+ * This file permits to handle and debug all the Exception.
+ *
+ */
+
 error_reporting(E_ALL);
 
 $whoops = new \Whoops\Run;

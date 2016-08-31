@@ -16,11 +16,11 @@
   ],
   "require": {
     "php": ">=5.6.0",
-    "filp/whoops": ">=2.1",
+    "filp/whoops": ">=2.1.0",
     "patricklouys/http": ">=1.1.0",
     "nikic/fast-route": ">=1.0.0",
     "scorsi/template-engine": ">=1.0.0",
-    "vlucas/spot2": "^2.2"
+    "scorsi/query-builder": ">=1.0.0"
   },
   "autoload": {
     "psr-4": {
