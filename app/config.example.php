@@ -18,11 +18,17 @@ const RENDERER_SETTINGS = array(
     'registered_tags' => array()
 );
 
-const ORM_DRIVER = 'mysql';
-const ORM_SETTINGS = array(
-    'dbname' => 'mydb',
-    'user' => 'user',
-    'password' => 'secret',
-    'host' => 'localhost',
-    'driver' => 'pdo_' . ORM_DRIVER
+const DB_DRIVER = 'mysql';
+const DB_CONFIG = array(
+    'driver'    => DB_DRIVER,
+    'host'      => 'localhost',
+    'database'  => 'minimis',
+    'username'  => 'root',
+    'password'  => '',
+    'charset'   => 'utf8',
+    'collation' => 'utf8_unicode_ci',
+    'options'   => array(
+        PDO::ATTR_TIMEOUT => 5,
+        PDO::ATTR_EMULATE_PREPARES => true,
+    )
 );
