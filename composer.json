@@ -10,24 +10,22 @@
   "authors": [
     {
       "name": "Sylvain Corsini",
-      "email": "sylvain.corsini@gmail.com"
+      "email": "sylvain.corsini@gmail.com",
+      "role": "Creator / Main Developer"
     }
   ],
   "require": {
     "php": ">=5.6.0",
-    "symfony/http-foundation": "3.1.*",
-    "symfony/routing": "3.1.*",
-    "symfony/http-kernel": "3.1.*",
-    "symfony/event-dispatcher": "3.1.*",
-    "scorsi/template-engine": "dev-master",
-    "scorsi/query-builder": "dev-master",
-    "scorsi/container": "dev-master"
+    "filp/whoops": ">=2.1",
+    "patricklouys/http": ">=1.1.0",
+    "nikic/fast-route": ">=1.0.0",
+    "scorsi/template-engine": ">=1.0.0",
+    "vlucas/spot2": "^2.2"
   },
   "autoload": {
-    "psr-0": {
-      "App": "",
-      "Src": "",
-      "Core": "Src"
+    "psr-4": {
+      "App\\": "app/",
+      "Src\\": "src/"
     }
   }
 }
