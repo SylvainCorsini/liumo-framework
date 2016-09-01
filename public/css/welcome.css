@@ -73,13 +73,6 @@ html, body {
     border-top: none;
     border-bottom: 2px solid #000000;
 }
-.wrapper .legend {
-    position: absolute;
-    color: #ffffff;
-    bottom: 1em;
-    font-family: 'Shadows Into Light', cursive;
-    font-size: 2rem;
-}
 @-webkit-keyframes breathe {
     0% {
         box-shadow: 0 13px 30px -10px rgba(0, 0, 0, 0.8);
