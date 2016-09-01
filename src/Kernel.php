@@ -65,8 +65,12 @@ class Kernel
                     throw new \Exception('Invalid controller:' . $className);
                 }
                 $class = new $className($this->response, $this->request, $this->renderer, $this->query);
-                $content = $class->$method($vars);
-                $this->response->setContent($content);
+                $return = $class->$method($vars);
+                if (is_string($return)) {
+                    $this->response->setContent($return);
+                } elseif (is_object($return)) {
+                    $this->response = $return;
+                }
         }
         return $this->response->getContent();
     }

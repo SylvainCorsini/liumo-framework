@@ -11,7 +11,7 @@
 use Http\HttpRequest;
 use Http\HttpResponse;
 use Scorsi\TemplateEngine\TemplateEngine;
-use Scorsi\QueryBuilder\QB;
+use Scorsi\QueryBuilder;
 
 $request = new HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
 $response = new HttpResponse();
@@ -22,10 +22,10 @@ foreach ($response->getHeaders() as $header) {
 $renderer = new TemplateEngine();
 $renderer->objectConfigure(RENDERER_SETTINGS);
 
-$queryConnection = new Scorsi\QueryBuilder\Connection(DB_DRIVER, DB_CONFIG);
-$queryBuilder = new QB\QueryBuilderHandler($queryConnection);
+$queryConnection = new QueryBuilder\Connection(DB_DRIVER, DB_CONFIG);
+$queryBuilder = new QueryBuilder\QB\QueryBuilderHandler($queryConnection);
 
-require 'Debug.php';
+require_once 'Debug.php';
 
 $dispatcher = \FastRoute\simpleDispatcher(function (\FastRoute\RouteCollector $r) {
     $routes = include ('../app/routes.php');
