@@ -49,34 +49,32 @@ class Kernel
     public function handle()
     {
         $routeInfo = $this->dispatcher->dispatch($this->request->getMethod(), $this->request->getPath());
-        switch ($routeInfo[0]) {
-            case Dispatcher::NOT_FOUND:
+        if ($routeInfo[0] == Dispatcher::NOT_FOUND) {
+            $this->response->setStatusCode(404);
+            throw new \Exception('404 page not found');
+        } elseif ($routeInfo[0] == Dispatcher::METHOD_NOT_ALLOWED) {
+            $this->response->setStatusCode(405);
+            throw new \Exception('405 method not allowed');
+        } elseif ($routeInfo[0] == Dispatcher::FOUND) {
+            $className = $routeInfo[1][0];
+            $method = $routeInfo[1][1];
+            $vars = $routeInfo[2];
+            if (!class_exists($className)) {
                 $this->response->setStatusCode(404);
-                throw new \Exception('404 page not found');
-            case Dispatcher::METHOD_NOT_ALLOWED:
-                $this->response->setStatusCode(405);
-                throw new \Exception('405 method not allowed');
-            case Dispatcher::FOUND:
-                $className = $routeInfo[1][0];
-                $method = $routeInfo[1][1];
-                $vars = $routeInfo[2];
-                if (!class_exists($className)) {
-                    $this->response->setStatusCode(404);
-                    throw new \Exception('Invalid controller:' . $className . '.');
-                }
-                $class = new $className($this->response, $this->request, $this->renderer, $this->query);
-                $return = $class->$method($vars);
-                if (is_string($return)) {
-                    $this->response->setContent($return);
-                } elseif (is_object($return) && is_a($return, 'Http\HttpResponse')) {
-                    $this->response = $return;
-                } else {
-                    $this->response->setStatusCode(204);
-                }
-                break ;
-            default:
-                $this->response->setStatusCode(520);
-                throw new \Exception('520 unknown error');
+                throw new \Exception('Invalid controller:' . $className . '.');
+            }
+            $class = new $className($this->response, $this->request, $this->renderer, $this->query);
+            $return = $class->$method($vars);
+            if (is_string($return)) {
+                $this->response->setContent($return);
+            } elseif (is_object($return) && is_a($return, 'Http\HttpResponse')) {
+                $this->response = $return;
+            } else {
+                $this->response->setStatusCode(204);
+            }
+        } else {
+            $this->response->setStatusCode(520);
+            throw new \Exception('520 unknown error');
         }
         return $this->response->getContent();
     }
