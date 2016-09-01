@@ -62,14 +62,16 @@ class Kernel
                 $vars = $routeInfo[2];
                 if (!class_exists($className)) {
                     $this->response->setStatusCode(404);
-                    throw new \Exception('Invalid controller:' . $className);
+                    throw new \Exception('Invalid controller:' . $className . '.');
                 }
                 $class = new $className($this->response, $this->request, $this->renderer, $this->query);
                 $return = $class->$method($vars);
                 if (is_string($return)) {
                     $this->response->setContent($return);
-                } elseif (is_object($return)) {
+                } elseif (is_object($return) && is_a($return, 'Http\HttpResponse')) {
                     $this->response = $return;
+                } else {
+                    throw new \Exception('Nothing return by the Controller.');
                 }
         }
         return $this->response->getContent();
