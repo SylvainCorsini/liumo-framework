@@ -1,0 +1,123 @@
+@import 'https://fonts.googleapis.com/css?family=Shadows+Into+Light';
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+.wrapper {
+    background: -webkit-linear-gradient(120deg, #155799, #159957);
+    background: linear-gradient(120deg, #155799, #159957);
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    z-index: -100;
+    -webkit-perspective: 500px;
+    perspective: 500px;
+}
+.floater {
+    height: 500px;
+    width: 500px;
+    background: white;
+    color: #000000;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 13px 30px -10px rgba(0, 0, 0, 0.8);
+    -webkit-transition: all 600ms ease;
+    transition: all 600ms ease;
+    margin: 10px;
+    -webkit-animation: breathe 3s infinite;
+    animation: breathe 3s infinite;
+    -webkit-animation-timing-function: easeOutBack;
+    animation-timing-function: easeOutBack;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+.floater .text {
+    display: block;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 10rem;
+    padding-top: .8rem;
+    border-top: 2px solid #000000;
+}
+.floater .text:last-child {
+    font-size: 4rem;
+    margin-top: -.8rem;
+    padding-bottom: 1rem;
+    border-top: none;
+    border-bottom: 2px solid #000000;
+}
+.wrapper .legend {
+    position: absolute;
+    color: #ffffff;
+    bottom: 1em;
+    font-family: 'Shadows Into Light', cursive;
+    font-size: 2rem;
+}
+@-webkit-keyframes breathe {
+    0% {
+        box-shadow: 0 13px 30px -10px rgba(0, 0, 0, 0.8);
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        opacity: .4;
+    }
+    50% {
+        box-shadow: 0 60px 30px -30px rgba(0, 0, 0, 0.3);
+        -webkit-transform: translate3d(2px, -2px, 30px);
+        transform: translate3d(2px, -2px, 30px);
+        opacity: 1;
+    }
+    100% {
+        box-shadow: 0 13px 30px -10px rgba(0, 0, 0, 0.8);
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        opacity: .4;
+    }
+}
+
+@keyframes breathe {
+    0% {
+        box-shadow: 0 13px 30px -10px rgba(0, 0, 0, 0.8);
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        opacity: .4;
+    }
+    50% {
+        box-shadow: 0 60px 30px -30px rgba(0, 0, 0, 0.3);
+        -webkit-transform: translate3d(2px, -2px, 30px);
+        transform: translate3d(2px, -2px, 30px);
+        opacity: 1;
+    }
+    100% {
+        box-shadow: 0 13px 30px -10px rgba(0, 0, 0, 0.8);
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+        opacity: .4;
+    }
+}
