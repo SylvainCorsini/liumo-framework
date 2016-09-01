@@ -10,11 +10,11 @@ A very light PHP framework.
 Go to the wiki (https://github.com/scorsi/minimis/wiki) to see all docs. And learn how Minimis works.
 
 ## Next update
-- Implement Spot2 ORM with Entity/Model
+- Implement some easy relationships methods to the query builder
 - Add plugins loader to template engine
-- Add forms builder (symfony components)
-- Add CSRF protection (symfony components)
+- Add forms builder and CSRF protection
 - Add authentication functionnalities
+- Add supervisors files (like middleware)
 
 ## Possible improvement
 - Create my own HTTP vendor
