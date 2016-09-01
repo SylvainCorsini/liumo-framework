@@ -71,8 +71,12 @@ class Kernel
                 } elseif (is_object($return) && is_a($return, 'Http\HttpResponse')) {
                     $this->response = $return;
                 } else {
-                    throw new \Exception('Nothing return by the Controller.');
+                    $this->response->setStatusCode(204);
                 }
+                break ;
+            default:
+                $this->response->setStatusCode(520);
+                throw new \Exception('520 unknown error');
         }
         return $this->response->getContent();
     }
