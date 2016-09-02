@@ -15,10 +15,10 @@ use Scorsi\TemplateEngine\TemplateEngine;
  */
 class Controller
 {
-    public $response;       // Http\Response
-    public $request;        // Http\Request
-    public $renderer;       // Scorsi\TemplateEngine\TemplateEngine
-    public $query;          // Scorsi\QueryBuilder\QB\QueryBuilderHandler
+    public $response;               // Http\Response
+    public $request;                // Http\Request
+    public $renderer;               // Scorsi\TemplateEngine\TemplateEngine
+    public $query;                  // Scorsi\QueryBuilder\QB\QueryBuilderHandler
 
     /**
      * Controller constructor.
