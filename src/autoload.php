@@ -35,3 +35,12 @@ include __DIR__ . '/query-builder/connectionAdapters/Sqlite.php';
 include __DIR__ . '/container/AliasFacade.php';
 include __DIR__ . '/container/Container.php';
 include __DIR__ . '/container/ContainerException.php';
+
+include __DIR__ . '/http/Cookie.php';
+include __DIR__ . '/http/CookieBuilder.php';
+include __DIR__ . '/http/HttpCookie.php';
+include __DIR__ . '/http/Request.php';
+include __DIR__ . '/http/HttpRequest.php';
+include __DIR__ . '/http/Response.php';
+include __DIR__ . '/http/HttpResponse.php';
+include __DIR__ . '/http/MissingRequestMetaVariableException.php';
