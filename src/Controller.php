@@ -3,8 +3,8 @@ namespace Src;
 
 use Http\Response;
 use Http\Request;
-use Scorsi\QueryBuilder\QB\QueryBuilderHandler;
-use Scorsi\TemplateEngine\TemplateEngine;
+use Src\QueryBuilder\QueryBuilderHandler;
+use Src\TemplateEngine\Renderer;
 
 /*
  * Controller Class
@@ -17,18 +17,18 @@ class Controller
 {
     public $response;               // Http\Response
     public $request;                // Http\Request
-    public $renderer;               // Scorsi\TemplateEngine\TemplateEngine
-    public $query;                  // Scorsi\QueryBuilder\QB\QueryBuilderHandler
+    public $renderer;               // Src\TemplateEngine\TemplateEngine
+    public $query;                  // Src\QueryBuilder\QB\QueryBuilderHandler
 
     /**
      * Controller constructor.
      *
      * @param Response $response
      * @param Request $request
-     * @param TemplateEngine $templateEngine
+     * @param Renderer $templateEngine
      * @param QueryBuilderHandler $queryBuilder
      */
-    public function __construct(Response $response, Request $request, TemplateEngine $templateEngine, QueryBuilderHandler $queryBuilder)
+    public function __construct(Response $response, Request $request, Renderer $templateEngine, QueryBuilderHandler $queryBuilder)
     {
         $this->response = $response;
         $this->request = $request;

@@ -1,17 +1,17 @@
 <?php
-
 /*
  * Bootstrap File
  ****************
  *
- * This file permits to bootstrap your application.
+ * This file permits to start your application.
  *
  */
 
 use Http\HttpRequest;
 use Http\HttpResponse;
-use Scorsi\TemplateEngine\TemplateEngine;
-use Scorsi\QueryBuilder;
+use Src\TemplateEngine\Renderer;
+use Src\Kernel;
+use Src\QueryBuilder;
 
 $request = new HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
 $response = new HttpResponse();
@@ -19,11 +19,11 @@ foreach ($response->getHeaders() as $header) {
     header($header, false);
 }
 
-$renderer = new TemplateEngine();
+$renderer = new Renderer();
 $renderer->objectConfigure(RENDERER_SETTINGS);
 
 $queryConnection = new QueryBuilder\Connection(DB_DRIVER, DB_CONFIG);
-$queryBuilder = new QueryBuilder\QB\QueryBuilderHandler($queryConnection);
+$queryBuilder = new QueryBuilder\QueryBuilderHandler($queryConnection);
 
 require_once 'Debug.php';
 
@@ -39,6 +39,6 @@ $dispatcher = call_user_func_array($fct, array(
     }, array('cacheFile' => "../" . CACHE_PATH . ROUTES_CACHE_FILENAME)
 ));
 
-$kernel = new \Src\Kernel($request, $response, $dispatcher, $renderer, $queryBuilder);
+$kernel = new Kernel($request, $response, $dispatcher, $renderer, $queryBuilder);
 
 echo $kernel->handle();

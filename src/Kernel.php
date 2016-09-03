@@ -4,8 +4,8 @@ namespace Src;
 use Http\Request;
 use Http\Response;
 use FastRoute\Dispatcher;
-use Scorsi\QueryBuilder\QB\QueryBuilderHandler;
-use Scorsi\TemplateEngine\TemplateEngine;
+use Src\QueryBuilder\QueryBuilderHandler;
+use Src\TemplateEngine\Renderer;
 
 /*
  * Kernel Class
@@ -19,8 +19,8 @@ class Kernel
     protected $request;             // Http\Request
     protected $response;            // Http\Response
     protected $dispatcher;          // FastRoute\Dispatcher
-    protected $renderer;            // Scorsi\TemplateEngine\TemplateEngine
-    protected $query;               // Scorsi\QueryBuilder\QB\QueryBuilderHandler
+    protected $renderer;            // Src\TemplateEngine\Renderer
+    protected $query;               // Src\QueryBuilder\QB\QueryBuilderHandler
 
     /**
      * Kernel constructor.
@@ -28,10 +28,10 @@ class Kernel
      * @param Request $request
      * @param Response $response
      * @param Dispatcher $dispatcher
-     * @param TemplateEngine $renderer
+     * @param Renderer $renderer
      * @param QueryBuilderHandler $queryBuilder
      */
-    public function __construct(Request $request, Response $response, Dispatcher $dispatcher, TemplateEngine $renderer, QueryBuilderHandler $queryBuilder)
+    public function __construct(Request $request, Response $response, Dispatcher $dispatcher, Renderer $renderer, QueryBuilderHandler $queryBuilder)
     {
         $this->request = $request;
         $this->response = $response;
