@@ -1,8 +1,8 @@
 <?php
 namespace Src;
 
-use Http\Response;
-use Http\Request;
+use Src\Http\Response;
+use Src\Http\Request;
 use Src\QueryBuilder\QueryBuilderHandler;
 use Src\TemplateEngine\Renderer;
 
@@ -15,8 +15,8 @@ use Src\TemplateEngine\Renderer;
  */
 class Controller
 {
-    public $response;               // Http\Response
-    public $request;                // Http\Request
+    public $response;               // Src\Http\Response
+    public $request;                // Src\Http\Request
     public $renderer;               // Src\TemplateEngine\TemplateEngine
     public $query;                  // Src\QueryBuilder\QB\QueryBuilderHandler
 

@@ -7,11 +7,12 @@
  *
  */
 
-use Http\HttpRequest;
-use Http\HttpResponse;
+use Src\Http\HttpRequest;
+use Src\Http\HttpResponse;
 use Src\TemplateEngine\Renderer;
 use Src\Kernel;
 use Src\QueryBuilder;
+use Src\Routing\RouteCollector;
 
 $request = new HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
 $response = new HttpResponse();
@@ -27,10 +28,10 @@ $queryBuilder = new QueryBuilder\QueryBuilderHandler($queryConnection);
 
 require_once 'Debug.php';
 
-(ROUTES_CACHE_ENABLED) ? ($fct = "\\FastRoute\\cachedDispatcher") : ($fct = "\\FastRoute\\simpleDispatcher");
+(ROUTES_CACHE_ENABLED) ? ($fct = "\\Src\\Routing\\cachedDispatcher") : ($fct = "\\Src\\Routing\\simpleDispatcher");
 
 $dispatcher = call_user_func_array($fct, array(
-    function (\FastRoute\RouteCollector $r) {
+    function (RouteCollector $r) {
         $routes = include ('../app/routes.php');
         foreach ($routes as $route) {
             $route[2][0] = 'App\\Controllers\\' . $route[2][0];

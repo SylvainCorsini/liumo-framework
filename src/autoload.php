@@ -1,4 +1,5 @@
 <?php
+
 include __DIR__ . '/Kernel.php';
 include __DIR__ . '/Controller.php';
 
@@ -44,3 +45,12 @@ include __DIR__ . '/http/HttpRequest.php';
 include __DIR__ . '/http/Response.php';
 include __DIR__ . '/http/HttpResponse.php';
 include __DIR__ . '/http/MissingRequestMetaVariableException.php';
+
+include __DIR__ . '/routing/BadRouteException.php';
+include __DIR__ . '/routing/bootstrap.php';
+include __DIR__ . '/routing/DataGenerator.php';
+include __DIR__ . '/routing/Dispatcher.php';
+include __DIR__ . '/routing/functions.php';
+include __DIR__ . '/routing/Route.php';
+include __DIR__ . '/routing/RouteCollector.php';
+include __DIR__ . '/routing/RouteParser.php';

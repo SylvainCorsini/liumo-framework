@@ -1,9 +1,9 @@
 <?php
 namespace Src;
 
-use Http\Request;
-use Http\Response;
-use FastRoute\Dispatcher;
+use Src\Http\Request;
+use Src\Http\Response;
+use Src\Routing\Dispatcher;
 use Src\QueryBuilder\QueryBuilderHandler;
 use Src\TemplateEngine\Renderer;
 
@@ -16,9 +16,9 @@ use Src\TemplateEngine\Renderer;
  */
 class Kernel
 {
-    protected $request;             // Http\Request
-    protected $response;            // Http\Response
-    protected $dispatcher;          // FastRoute\Dispatcher
+    protected $request;             // Src\Http\Request
+    protected $response;            // Src\Http\Response
+    protected $dispatcher;          // Src\Routing\Dispatcher
     protected $renderer;            // Src\TemplateEngine\Renderer
     protected $query;               // Src\QueryBuilder\QB\QueryBuilderHandler
 
