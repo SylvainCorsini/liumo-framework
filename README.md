@@ -16,10 +16,6 @@ Go to the wiki (https://github.com/scorsi/minimis/wiki) to see all docs. And lea
 - Add authentication functionnalities
 - Add supervisors files (like middleware)
 
-## Possible improvement
-- Create my own HTTP vendor
-- Create my own Routing vendor
-
 # License
 
 See on https://tldrlegal.com/license/x11-license the terms of the X11 license.
