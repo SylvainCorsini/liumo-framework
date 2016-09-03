@@ -1,5 +1,5 @@
 <?php
-namespace Scorsi\Container;
+namespace Src\Container;
 
 
 class ContainerException extends \Exception

@@ -1,5 +1,5 @@
 <?php
-namespace Scorsi\Container;
+namespace Src\Container;
 
 class Container
 {
@@ -19,7 +19,7 @@ class Container
     {
         if ($alias) {
             AliasFacade::setContainerInstance($this);
-            class_alias('\\Scorsi\\Container\\AliasFacade', $alias);
+            class_alias('\\Src\\Container\\AliasFacade', $alias);
         }
     }
 

@@ -1,5 +1,5 @@
 <?php
-namespace Scorsi\Container;
+namespace Src\Container;
 
 /**
  * This class gives the ability to access non-static methods statically
