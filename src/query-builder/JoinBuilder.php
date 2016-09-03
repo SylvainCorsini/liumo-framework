@@ -1,5 +1,5 @@
 <?php
-namespace Src\QueryBuilder\QB;
+namespace Src\QueryBuilder;
 
 class JoinBuilder extends QueryBuilderHandler
 {

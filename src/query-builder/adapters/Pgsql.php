@@ -1,5 +1,5 @@
 <?php
-namespace Src\QueryBuilder\QB\Adapters;
+namespace Src\QueryBuilder\Adapters;
 
 class Pgsql extends BaseAdapter
 {

@@ -1,5 +1,5 @@
 <?php
-namespace Scorsi\QueryBuilder\ConnectionAdapters;
+namespace Src\QueryBuilder\ConnectionAdapters;
 
 class Mysql extends BaseAdapter
 {

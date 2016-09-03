@@ -1,20 +1,19 @@
 <?php
-namespace Src\QueryBuilder\QB;
+namespace Src\QueryBuilder;
 
 use PDO;
-use Src\QueryBuilder\Connection;
-use Src\QueryBuilder\Exception;
+use Src\Container\Container;
 
 class QueryBuilderHandler
 {
 
     /**
-     * @var \Src\Container\Container
+     * @var Container
      */
     protected $container;
 
     /**
-     * @var \Src\Container\Container
+     * @var Container
      */
     protected $connection;
 
@@ -39,7 +38,7 @@ class QueryBuilderHandler
     protected $tablePrefix = null;
 
     /**
-     * @var \Src\QueryBuilder\QB\Adapters\BaseAdapter
+     * @var \Src\QueryBuilder\Adapters\BaseAdapter
      */
     protected $adapterInstance;
 
@@ -75,7 +74,7 @@ class QueryBuilderHandler
 
         // Query builder adapter instance
         $this->adapterInstance = $this->container->build(
-            '\\Src\\QueryBuilder\\QB\\Adapters\\' . ucfirst($this->adapter),
+            '\\Src\\QueryBuilder\\Adapters\\' . ucfirst($this->adapter),
             array($this->connection)
         );
 
@@ -285,7 +284,7 @@ class QueryBuilderHandler
         $queryArr = $this->adapterInstance->$type($this->statements, $dataToBePassed);
 
         return $this->container->build(
-            '\\Scorsi\\QueryBuilder\\QB\\QueryObject',
+            '\\Src\\QueryBuilder\\QueryObject',
             array($queryArr['sql'], $queryArr['bindings'], $this->pdo)
         );
     }
@@ -791,7 +790,7 @@ class QueryBuilderHandler
 
         // Build a new JoinBuilder class, keep it by reference so any changes made
         // in the closure should reflect here
-        $joinBuilder = $this->container->build('\\Src\\QueryBuilder\\QB\\JoinBuilder', array($this->connection));
+        $joinBuilder = $this->container->build('\\Src\\QueryBuilder\\JoinBuilder', array($this->connection));
         $joinBuilder = & $joinBuilder;
         // Call the closure with our new joinBuilder object
         $key($joinBuilder);
@@ -816,7 +815,7 @@ class QueryBuilderHandler
             $this->pdo->beginTransaction();
 
             // Get the Transaction class
-            $transaction = $this->container->build('\\Src\\QueryBuilder\\QB\\Transaction', array($this->connection));
+            $transaction = $this->container->build('\\Src\\QueryBuilder\\Transaction', array($this->connection));
 
             // Call closure
             $callback($transaction);
@@ -885,7 +884,7 @@ class QueryBuilderHandler
      */
     public function raw($value, $bindings = array())
     {
-        return $this->container->build('\\Src\\QueryBuilder\\QueryBuilder\\Raw', array($value, $bindings));
+        return $this->container->build('\\Src\\QueryBuilder\\Raw', array($value, $bindings));
     }
 
     /**

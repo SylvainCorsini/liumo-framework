@@ -1,7 +1,7 @@
 <?php
-namespace Scorsi\QueryBuilder;
+namespace Src\QueryBuilder;
 
-use Scorsi\Container\Container;
+use Src\Container\Container;
 
 class Connection
 {
@@ -51,7 +51,7 @@ class Connection
         $this->setAdapter($adapter)->setAdapterConfig($adapterConfig)->connect();
 
         // Create event dependency
-        $this->eventHandler = $this->container->build('\\Scorsi\\QueryBuilder\\EventHandler');
+        $this->eventHandler = $this->container->build('\\Src\\QueryBuilder\\EventHandler');
 
         if ($alias) {
             $this->createAlias($alias);
@@ -65,8 +65,8 @@ class Connection
      */
     public function createAlias($alias)
     {
-        class_alias('\\Scorsi\\QueryBuilder\\AliasFacade', $alias);
-        $builder = $this->container->build('\\Scorsi\\QueryBuilder\\QB\\QueryBuilderHandler', array($this));
+        class_alias('\\Src\\QueryBuilder\\AliasFacade', $alias);
+        $builder = $this->container->build('\\Src\\QueryBuilder\\QueryBuilderHandler', array($this));
         AliasFacade::setQueryBuilderInstance($builder);
     }
 
@@ -75,7 +75,7 @@ class Connection
      */
     public function getQueryBuilder()
     {
-        return $this->container->build('\\Scorsi\\QueryBuilder\\QB\\QueryBuilderHandler', array($this));
+        return $this->container->build('\\Src\\QueryBuilder\\QueryBuilderHandler', array($this));
     }
 
 
@@ -86,7 +86,7 @@ class Connection
     {
         // Build a database connection if we don't have one connected
 
-        $adapter = '\\Scorsi\\QueryBuilder\\ConnectionAdapters\\' . ucfirst(strtolower($this->adapter));
+        $adapter = '\\Src\\QueryBuilder\\ConnectionAdapters\\' . ucfirst(strtolower($this->adapter));
 
         $adapterInstance = $this->container->build($adapter, array($this->container));
 

@@ -1,8 +1,5 @@
 <?php
-namespace Scorsi\QueryBuilder;
-
-use Scorsi\QueryBuilder\QB\QueryBuilderHandler;
-use Scorsi\QueryBuilder\QB\Raw;
+namespace Src\QueryBuilder;
 
 class EventHandler
 {
@@ -54,7 +51,7 @@ class EventHandler
     /**
      * @param          $event
      * @param string   $table
-     * @param callable $action
+     * @param          $action
      *
      * @return void
      */

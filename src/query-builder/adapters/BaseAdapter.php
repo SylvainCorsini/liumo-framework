@@ -1,19 +1,19 @@
 <?php
-namespace Src\QueryBuilder\QB\Adapters;
+namespace Src\QueryBuilder\Adapters;
 
 use Src\QueryBuilder\Connection;
 use Src\QueryBuilder\Exception;
-use Src\QueryBuilder\QB\Raw;
+use Src\QueryBuilder\Raw;
 
 abstract class BaseAdapter
 {
     /**
-     * @var \Scorsi\QueryBuilder\Connection
+     * @var \Src\QueryBuilder\Connection
      */
     protected $connection;
 
     /**
-     * @var \Scorsi\Container\Container
+     * @var \Src\Container\Container
      */
     protected $container;
 

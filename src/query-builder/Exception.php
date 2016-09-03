@@ -1,5 +1,5 @@
 <?php
-namespace Scorsi\QueryBuilder;
+namespace Src\QueryBuilder;
 
 class Exception extends \Exception
 {

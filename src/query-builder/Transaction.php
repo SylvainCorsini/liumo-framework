@@ -1,5 +1,5 @@
 <?php
-namespace Src\QueryBuilder\QB;
+namespace Src\QueryBuilder;
 
 class Transaction extends QueryBuilderHandler
 {

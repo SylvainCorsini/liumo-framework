@@ -1,7 +1,5 @@
 <?php
-namespace Scorsi\QueryBuilder;
-
-use Scorsi\QueryBuilder\QB\QueryBuilderHandler;
+namespace Src\QueryBuilder;
 
 /**
  * This class gives the ability to access non-static methods statically

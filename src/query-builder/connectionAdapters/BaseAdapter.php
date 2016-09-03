@@ -1,17 +1,19 @@
 <?php
-namespace Scorsi\QueryBuilder\ConnectionAdapters;
+namespace Src\QueryBuilder\ConnectionAdapters;
+
+use Src\Container\Container;
 
 abstract class BaseAdapter
 {
     /**
-     * @var \Scorsi\Container\Container
+     * @var Container
      */
     protected $container;
 
     /**
-     * @param \Scorsi\Container\Container $container
+     * @param Container $container
      */
-    public function __construct(\Scorsi\Container\Container $container)
+    public function __construct(Container $container)
     {
         $this->container = $container;
     }
