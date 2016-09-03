@@ -1,5 +1,5 @@
 <?php
-namespace Src\TemplateEngine\TPL;
+namespace Src\TemplateEngine;
 
 /**
  * Interface for a plugin classes for rain template engine.

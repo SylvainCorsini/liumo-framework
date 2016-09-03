@@ -1,5 +1,5 @@
 <?php
-namespace Src\TemplateEngine\TPL;
+namespace Src\TemplateEngine;
 
 class Parser
 {
@@ -130,7 +130,7 @@ class Parser
                 }, $code);
 
             $parsedCode = $this->compileTemplate($code, $isString = false, $templateBasedir, $templateDirectory, $templateFilepath);
-            $parsedCode = "<?php if(!class_exists('Scorsi\\TemplateEngine\\TemplateEngine')){exit;}?>" . $parsedCode;
+            $parsedCode = "<?php if(!class_exists('Src\\TemplateEngine\\Renderer')){exit;}?>" . $parsedCode;
 
             // fix the php-eating-newline-after-closing-tag-problem
             $parsedCode = str_replace("?>\n", "?>\n\n", $parsedCode);
@@ -185,7 +185,7 @@ class Parser
 
             $parsedCode = $this->compileTemplate($code, $isString = true, $templateBasedir, $templateDirectory = null, $templateFilepath);
 
-            $parsedCode = "<?php if(!class_exists('Scorsi\\TemplateEngine\\TemplateEngine')){exit;}?>" . $parsedCode;
+            $parsedCode = "<?php if(!class_exists('Src\\TemplateEngine\\Renderer')){exit;}?>" . $parsedCode;
 
             // fix the php-eating-newline-after-closing-tag-problem
             $parsedCode = str_replace("?>\n", "?>\n\n", $parsedCode);
@@ -552,7 +552,7 @@ class Parser
         $html = str_replace('?><?php', ' ', $parsedCode);
 
         // Execute plugins, after_parse
-        $context->code = $parsedCode;
+        $context->code = $html;
         $this->getPlugins()->run('afterParse', $context);
 
         return $context->code;
@@ -653,7 +653,7 @@ class Parser
         // reduce the path
         $path = str_replace( "://", "@not_replace@", $path );
         $path = preg_replace( "#(/+)#", "/", $path );
-        $path = preg_replace( "#(/\./+)#", "/", $path );
+        $path = preg_replace( "#(/\\./+)#", "/", $path );
         $path = str_replace( "@not_replace@", "://", $path );
         while( preg_match('#\w+\.\./#', $path) ) {
             $path = preg_replace('#\w+/\.\./#', '', $path );

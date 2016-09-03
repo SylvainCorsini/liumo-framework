@@ -1,11 +1,5 @@
 <?php
-namespace Scr\TemplateEngine;
-
-use Src\TemplateEngine\PluginContainer;
-use Src\TemplateEngine\IPlugin;
-use Src\TemplateEngine\Parser;
-use Src\TemplateEngine\NotFoundException;
-use Src\TemplateEngine\Exception;
+namespace Src\TemplateEngine;
 
 class Renderer
 {
@@ -135,7 +129,7 @@ class Renderer
      * @param string, array $setting: name of the setting to configure
      * or associative array type 'setting' => 'value'
      * @param mixed $value: value of the setting to configure
-     * @return TemplateEngine $this
+     * @return Renderer $this
      */
     public function objectConfigure($setting, $value = null) {
         if (is_array($setting))
@@ -183,7 +177,7 @@ class Renderer
      * @param mixed $variable Name of template variable or associative array name/value
      * @param mixed $value value assigned to this variable. Not set if variable_name is an associative array
      *
-     * @return TemplateEngine $this
+     * @return Renderer $this
      */
     public function assign($variable, $value = null) {
         if (is_array($variable))

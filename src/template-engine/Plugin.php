@@ -1,5 +1,5 @@
 <?php
-namespace Src\TemplateEngine\TPL;
+namespace Src\TemplateEngine;
 
 /**
  * Basic plugin implementation.

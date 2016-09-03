@@ -1,5 +1,5 @@
 <?php
-namespace Src\TemplateEngine\TPL;
+namespace Src\TemplateEngine;
 
 /**
  * Maintains template plugins and call hook methods.

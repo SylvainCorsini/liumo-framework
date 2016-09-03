@@ -1,5 +1,5 @@
 <?php
-namespace Src\TemplateEngine\TPL;
+namespace Src\TemplateEngine;
 
 /**
  * Exception thrown when template file does not exists.
