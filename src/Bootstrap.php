@@ -32,12 +32,15 @@ require_once 'Debug.php';
 
 $dispatcher = call_user_func_array($fct, array(
     function (RouteCollector $r) {
-        $routes = include ('../app/routes.php');
+        $routes = include ('../' . ROUTES_FILE);
         foreach ($routes as $route) {
             $route[2][0] = 'App\\Controllers\\' . $route[2][0];
             $r->addRoute($route[0], DEFAULT_URI . $route[1], $route[2]);
         }
-    }, array('cacheFile' => "../" . CACHE_PATH . ROUTES_CACHE_FILENAME)
+    }, array(
+        'cacheFile' => '../' . CACHE_PATH . ROUTES_CACHE_FILENAME,
+        'routesFile' => '../' . ROUTES_FILE
+    )
 ));
 
 $kernel = new Kernel($request, $response, $dispatcher, $renderer, $queryBuilder);

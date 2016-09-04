@@ -40,11 +40,12 @@ if (!function_exists('FastRoute\simpleDispatcher')) {
             'cacheDisabled' => false,
         ];
 
-        if (!isset($options['cacheFile'])) {
-            throw new \LogicException('Must specify "cacheFile" option');
+        if (!isset($options['cacheFile']) || !isset($options['routesFile']) || !file_exists($options['routesFile'])) {
+            throw new \LogicException('Must specify "cacheFile" and existing "routesFile" option');
         }
 
-        if (!$options['cacheDisabled'] && file_exists($options['cacheFile'])) {
+        if (!$options['cacheDisabled'] && file_exists($options['cacheFile'])
+            && (filemtime($options['cacheFile']) > filemtime($options['routesFile']))) {
             $dispatchData = require $options['cacheFile'];
             if (!is_array($dispatchData)) {
                 throw new \RuntimeException('Invalid cache file "' . $options['cacheFile'] . '"');

@@ -12,8 +12,9 @@ const CACHE_PATH = 'cache/';
  * ROUTES CONFIG
  */
 
+const ROUTES_FILE = 'app/routes.php';
 const ROUTES_CACHE_ENABLED = true;
-const ROUTES_CACHE_FILENAME = "routes.php";
+const ROUTES_CACHE_FILENAME = 'routes.php';
 
 /*
  * RENDERER CONFIG
