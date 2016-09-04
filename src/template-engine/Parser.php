@@ -96,6 +96,7 @@ class Parser
      * @param string $templateDirectory
      * @param string $templateFilepath
      * @param string $parsedTemplateFilepath: cache file where to save the template
+     * @throws Exception
      */
     public function compileFile(
         $templateName,
@@ -213,7 +214,9 @@ class Parser
      * Compile template
      * @access protected
      *
+     * @throws
      * @param string $code: code to compile
+     * @return string
      */
     protected function compileTemplate($code, $isString, $templateBasedir, $templateDirectory, $templateFilepath) {
 
