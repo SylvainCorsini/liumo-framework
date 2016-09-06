@@ -18,6 +18,7 @@ if (DEVELOPMENT_ENVIRONMENT === true) {
     $whoops->pushHandler(new \Whoops\Handler\PrettyPageHandler);
 } else {
     ini_set('display_errors', 'Off');
+    Kint::enabled(false);
     $whoops->pushHandler(function () use ($response, $renderer) {
         if ($response->getStatusCode() != 200) {
             if (file_exists('../' . TPL_PATH . ERRORS_TPL_PATH . $response->getStatusCode() . '.' . TPL_EXT)) {
