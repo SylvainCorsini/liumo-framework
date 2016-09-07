@@ -10,11 +10,15 @@ A very light PHP framework.
 Go to the wiki (https://github.com/scorsi/minimis/wiki) to see all docs. And learn how Minimis works.
 
 ## Next update
-- Implement some easy relationships methods to the query builder
-- Add plugins loader to template engine
-- Add forms builder and CSRF protection
-- Add authentication functionnalities
-- Add supervisors files (like middleware)
+- Query Builder:
+  - Add easy relationships methods.
+- Template Engine:
+  - Add forms builder.
+  - Add CSRF protection.
+  - Add markdown reader.
+- General:
+  - Add simple and light Auth system.
+  - Add middleware (named supervisors) (a before controller, used for example for Auth).
 
 # License
 
