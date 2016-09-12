@@ -18,7 +18,6 @@ Go to the wiki (https://github.com/scorsi/minimis/wiki) to see all docs. And lea
   - Add markdown reader.
 - General:
   - Add simple and light Auth system.
-  - Reorganize folders.
 
 # License
 
