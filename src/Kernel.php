@@ -14,6 +14,7 @@ use Src\TemplateEngine\Renderer;
  * This class will handle the request for calling your controller.
  *
  */
+
 class Kernel
 {
     protected $request;             // Src\Http\Request
@@ -56,27 +57,26 @@ class Kernel
             $this->response->setStatusCode(405);
             throw new \Exception('405 Method Not Allowed');
         } elseif ($routeInfo[0] == Dispatcher::FOUND) {
-            $handlerName = $routeInfo[1][0][0];
-            $method = $routeInfo[1][0][1];
-            $middlewaresName = $routeInfo[1][1];
+            $handler = $routeInfo[1][0];
             $vars = $routeInfo[2];
-            if (!class_exists($handlerName)) {
-                $this->response->setStatusCode(404);
-                throw new \Exception('Invalid controller:' . $handlerName . '.');
-            }
-            foreach ($middlewaresName as $middlewareName) {
-                if (!class_exists($middlewareName)) {
+            $middlewares = $routeInfo[1][1];
+            foreach ($middlewares as $middleware) {
+                if (!class_exists($middleware[0])) {
                     $this->response->setStatusCode(404);
-                    throw new \Exception('Invalid middleware:' . $handlerName . '.');
+                    throw new \Exception('Invalid middleware:' . $middleware[0] . '.');
                 }
-                $middleware = new $middlewareName();
-                if ($middleware->index() == false) {
+                $middleware[0] = new $middleware[0]($this->response, $this->request);
+                if ($middleware[0]->$middleware[1]() === false) {
                     $this->response->setStatusCode(401);
                     throw new \Exception('401 Unauthorized');
                 }
             }
-            $handler = new $handlerName($this->response, $this->request, $this->renderer, $this->query);
-            $return = $handler->$method($vars);
+            if (!class_exists($handler[0])) {
+                $this->response->setStatusCode(404);
+                throw new \Exception('Invalid controller:' . $handler[0] . '.');
+            }
+            $handler[0] = new $handler[0]($this->response, $this->request, $this->renderer, $this->query);
+            $return = $handler[0]->$handler[1]($vars);
             if (is_string($return)) {
                 $this->response->setContent($return);
             } elseif (is_object($return) && is_a($return, 'Http\HttpResponse')) {

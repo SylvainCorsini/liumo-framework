@@ -8,20 +8,39 @@ if (!function_exists('Src\Routing\simpleDispatcher')) {
     /**
      * @param RouteCollector $r
      * @param string $routesFile
+     *
+     * @throws \Exception
+     *
      * @return RouteCollector $r
      */
     function getRouteCollector(RouteCollector $r, $routesFile)
     {
         $routesParam = Yaml::parse(file_get_contents($routesFile));
         foreach ($routesParam as $routeParam) {
-            $controller = array(
-                0 => 'App\\Controllers\\' . $routeParam['controller']['class'],
-                1 => $routeParam['controller']['method']
-            );
-            foreach ($routeParam['middlewares'] as $key => $value) {
-                $routeParam['middlewares'][$key] = 'App\\Middlewares\\' . $value;
+            if (empty($routeParam['controller'])) {
+                throw new \Exception('A controller is needed to create a route.');
             }
-            $r->addRoute($routeParam['method'], DEFAULT_URI . $routeParam['path'], $controller, $routeParam['middlewares']);
+            $controller = array(
+                0 => 'App\\Bundles\\' . explode('::', $routeParam['controller'])[0] . '\\Controllers\\' . explode('::', $routeParam['controller'])[1],
+                1 => explode('::', $routeParam['controller'])[2]
+            );
+            $middleware = array();
+            if (!empty($routeParam['middlewares'])) {
+                if (is_array($routeParam['middlewares'])) {
+                    foreach ($routeParam['middlewares'] as $key => $value) {
+                        $middleware[$key] = array(
+                            0 => 'App\\Bundles\\' . explode('::', $value)[0] . '\\Middlewares\\' . explode('::', $value)[1],
+                            1 => explode('::', $value)[2]
+                        );
+                    }
+                } else {
+                    $middleware[] = array(
+                        0 => 'App\\Bundles\\' . explode('::', $routeParam['middlewares'])[0] . '\\Middlewares\\' . explode('::', $routeParam['middlewares'])[1],
+                        1 => explode('::', $routeParam['middlewares'])[2]
+                    );
+                }
+            }
+            $r->addRoute($routeParam['method'], DEFAULT_URI . $routeParam['path'], $controller, $middleware);
         }
         return $r;
     }
