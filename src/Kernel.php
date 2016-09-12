@@ -85,6 +85,6 @@ class Kernel
                 $this->response->setStatusCode(204);
             }
         }
-        return $this->response->getContent();
+        return $this->response->returnResponse();
     }
 }

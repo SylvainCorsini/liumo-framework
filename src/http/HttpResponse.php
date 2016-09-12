@@ -75,6 +75,20 @@ class HttpResponse implements Response
     ];
 
     /**
+     * Do all the necessary to return the response correctly.
+     *
+     * @return string
+     */
+    public function returnResponse()
+    {
+        $headers = $this->getHeaders();
+        foreach ($headers as $header) {
+            header($header);
+        }
+        return $this->getContent();
+    }
+
+    /**
      * Sets the HTTP status code.
      *
      * @param  integer $statusCode

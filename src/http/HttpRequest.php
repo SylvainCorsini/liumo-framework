@@ -9,6 +9,7 @@ class HttpRequest implements Request
     protected $server;
     protected $files;
     protected $cookies;
+    protected $session;
 
     public function __construct(
         array $get,
@@ -24,6 +25,8 @@ class HttpRequest implements Request
         $this->files = $files;
         $this->server = $server;
         $this->inputStream = $inputStream;
+        session_start();
+        $this->session = $_SESSION;
     }
 
     /**

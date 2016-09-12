@@ -28,6 +28,7 @@ if (DEVELOPMENT_ENVIRONMENT === true) {
         } else {
             echo 'An unknown error occured.';
         }
+        return $response->returnResponse();
     });
 }
 $whoops->register();
