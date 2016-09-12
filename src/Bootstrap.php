@@ -35,7 +35,10 @@ $dispatcher = call_user_func_array($fct, array(
         $routes = include ('../' . ROUTES_FILE);
         foreach ($routes as $route) {
             $route[2][0] = 'App\\Controllers\\' . $route[2][0];
-            $r->addRoute($route[0], DEFAULT_URI . $route[1], $route[2]);
+            foreach ($route[3] as $key => $value) {
+                $route[3][$key] = 'App\\Middlewares\\' . $value;
+            }
+            $r->addRoute($route[0], DEFAULT_URI . $route[1], $route[2], $route[3]);
         }
     }, array(
         'cacheFile' => '../' . CACHE_PATH . ROUTES_CACHE_FILENAME,

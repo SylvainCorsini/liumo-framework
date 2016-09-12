@@ -51,20 +51,32 @@ class Kernel
         $routeInfo = $this->dispatcher->dispatch($this->request->getMethod(), $this->request->getPath());
         if ($routeInfo[0] == Dispatcher::NOT_FOUND) {
             $this->response->setStatusCode(404);
-            throw new \Exception('404 page not found');
+            throw new \Exception('404 Not Found');
         } elseif ($routeInfo[0] == Dispatcher::METHOD_NOT_ALLOWED) {
             $this->response->setStatusCode(405);
-            throw new \Exception('405 method not allowed');
+            throw new \Exception('405 Method Not Allowed');
         } elseif ($routeInfo[0] == Dispatcher::FOUND) {
-            $className = $routeInfo[1][0];
-            $method = $routeInfo[1][1];
+            $handlerName = $routeInfo[1][0][0];
+            $method = $routeInfo[1][0][1];
+            $middlewaresName = $routeInfo[1][1];
             $vars = $routeInfo[2];
-            if (!class_exists($className)) {
+            if (!class_exists($handlerName)) {
                 $this->response->setStatusCode(404);
-                throw new \Exception('Invalid controller:' . $className . '.');
+                throw new \Exception('Invalid controller:' . $handlerName . '.');
             }
-            $class = new $className($this->response, $this->request, $this->renderer, $this->query);
-            $return = $class->$method($vars);
+            foreach ($middlewaresName as $middlewareName) {
+                if (!class_exists($middlewareName)) {
+                    $this->response->setStatusCode(404);
+                    throw new \Exception('Invalid middleware:' . $handlerName . '.');
+                }
+                $middleware = new $middlewareName();
+                if ($middleware->index() == false) {
+                    $this->response->setStatusCode(401);
+                    throw new \Exception('401 Unauthorized');
+                }
+            }
+            $handler = new $handlerName($this->response, $this->request, $this->renderer, $this->query);
+            $return = $handler->$method($vars);
             if (is_string($return)) {
                 $this->response->setContent($return);
             } elseif (is_object($return) && is_a($return, 'Http\HttpResponse')) {
@@ -72,9 +84,6 @@ class Kernel
             } else {
                 $this->response->setStatusCode(204);
             }
-        } else {
-            $this->response->setStatusCode(520);
-            throw new \Exception('520 unknown error');
         }
         return $this->response->getContent();
     }

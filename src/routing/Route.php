@@ -8,6 +8,7 @@ class Route
     public $regex;
     public $variables;
     public $handler;
+    public $middleware;
 
     /**
      * Constructs a route (value object).
@@ -17,10 +18,11 @@ class Route
      * @param string $regex
      * @param array  $variables
      */
-    public function __construct($httpMethod, $handler, $regex, $variables)
+    public function __construct($httpMethod, $handler, $middleware, $regex, $variables)
     {
         $this->httpMethod = $httpMethod;
         $this->handler = $handler;
+        $this->middleware = $middleware;
         $this->regex = $regex;
         $this->variables = $variables;
     }

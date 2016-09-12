@@ -10,7 +10,7 @@ if (!function_exists('FastRoute\simpleDispatcher')) {
      */
     function simpleDispatcher(callable $routeDefinitionCallback, array $options = []) {
         $options += [
-            'routeParser' => '\\Src\\Routing\\Std',
+            'routeParser' => '\\Src\\Routing\\RouteParser\\Std',
             'dataGenerator' => '\\Src\\Routing\\DataGenerator\\GroupCountBased',
             'dispatcher' => '\\Src\\Routing\\Dispatcher\\GroupCountBased',
             'routeCollector' => '\\Src\\Routing\\RouteCollector',

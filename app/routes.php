@@ -10,6 +10,6 @@
 
 return array(
     array(
-        'GET', '/', ['TestController', 'index']
+        'GET', '/[{test}]', ['TestController', 'index'], ['TestMiddleware']
     )
 );
