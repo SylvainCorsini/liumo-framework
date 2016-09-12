@@ -40,6 +40,10 @@ if (!function_exists('Src\Routing\simpleDispatcher')) {
             'routeCollector' => '\\Src\\Routing\\RouteCollector',
         ];
 
+        if (!isset($options['routesFile']) || !file_exists($options['routesFile'])) {
+            throw new \LogicException('Must specify a existing "routesFile" option');
+        }
+
         /** @var RouteCollector $routeCollector */
         $routeCollector = new $options['routeCollector'](
             new $options['routeParser'], new $options['dataGenerator']
