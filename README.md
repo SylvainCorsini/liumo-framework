@@ -21,7 +21,6 @@ Go to the wiki (https://github.com/scorsi/minimis/wiki) to see all docs. And lea
   - Add markdown reader.
 - General:
   - Add simple and light Auth system.
-  - Add middleware (named supervisors) (a before controller, used for example for Auth).
 
 # License
 
