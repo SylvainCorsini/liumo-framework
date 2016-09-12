@@ -12,7 +12,6 @@ use Src\Http\HttpResponse;
 use Src\TemplateEngine\Renderer;
 use Src\Kernel;
 use Src\QueryBuilder;
-use Src\Routing\RouteCollector;
 
 $request = new HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
 $response = new HttpResponse();

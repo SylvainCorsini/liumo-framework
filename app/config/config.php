@@ -12,7 +12,7 @@ const CACHE_PATH = 'app/cache/';
  * ROUTES CONFIG
  */
 
-const ROUTES_FILE = 'app/conf/routes.yaml';
+const ROUTES_FILE = 'app/config/routes.yaml';
 const ROUTES_CACHE_ENABLED = true;
 const ROUTES_CACHE_FILENAME = 'routes.php';
 
