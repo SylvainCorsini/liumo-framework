@@ -13,6 +13,7 @@ use Src\TemplateEngine\Renderer;
 use Src\Kernel;
 use Src\QueryBuilder;
 use Src\Routing\RouteCollector;
+use Symfony\Component\Yaml\Yaml;
 
 $request = new HttpRequest($_GET, $_POST, $_COOKIE, $_FILES, $_SERVER);
 $response = new HttpResponse();
@@ -32,13 +33,16 @@ require_once 'Debug.php';
 
 $dispatcher = call_user_func_array($fct, array(
     function (RouteCollector $r) {
-        $routes = include ('../' . ROUTES_FILE);
-        foreach ($routes as $route) {
-            $route[2][0] = 'App\\Controllers\\' . $route[2][0];
-            foreach ($route[3] as $key => $value) {
-                $route[3][$key] = 'App\\Middlewares\\' . $value;
+        $routesParam = Yaml::parse(file_get_contents('../' . ROUTES_FILE));
+        foreach ($routesParam as $routeParam) {
+            $controller = array(
+                0 => 'App\\Controllers\\' . $routeParam['controller']['class'],
+                1 => $routeParam['controller']['method']
+            );
+            foreach ($routeParam['middlewares'] as $key => $value) {
+                $routeParam['middlewares'][$key] = 'App\\Middlewares\\' . $value;
             }
-            $r->addRoute($route[0], DEFAULT_URI . $route[1], $route[2], $route[3]);
+            $r->addRoute($routeParam['method'], DEFAULT_URI . $routeParam['path'], $controller, $routeParam['middlewares']);
         }
     }, array(
         'cacheFile' => '../' . CACHE_PATH . ROUTES_CACHE_FILENAME,
