@@ -1,8 +1,8 @@
 composer.phar
 /vendor/
-/log/
-/cache/
-/app/config.php
+/app/config/config.php
+/app/log/
+/app/cache/
 composer.lock
 /.idea/
 
