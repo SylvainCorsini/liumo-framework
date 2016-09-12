@@ -1,7 +1,9 @@
 <?php
 namespace App\Middlewares;
 
-class TestMiddleware
+use Src\Middleware;
+
+class TestMiddleware extends Middleware
 {
     public function index()
     {
