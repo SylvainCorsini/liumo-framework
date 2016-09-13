@@ -16,8 +16,6 @@ Go to the wiki (https://github.com/scorsi/minimis-framework/wiki) to see all doc
   - Add forms builder.
   - Add CSRF protection.
   - Add markdown reader.
-- General:
-  - Add simple and light Auth system.
 
 # License
 
