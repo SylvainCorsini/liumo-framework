@@ -13,7 +13,7 @@ Go to the wiki (https://github.com/scorsi/minimis-framework/wiki) to see all doc
 - Easy and user-friendly organization bundle with Controllers and Middlewares.
 - Oriented template engine for designers (based on RainTPL by feulf).
 - Very ligh and complete query builder (based on Pixie by usmanhalalit).
-- Very fast and powerful routing (based on FastRoute by Nikic).
+- Very fast and powerful routing (based on FastRoute by nikic).
 - Easy and fast Auth functionnalities.
 - Easy and poweful Crypt functionnalities.
 - Powerful Http (Response, Request, Cookie) classes.
