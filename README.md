@@ -7,7 +7,7 @@
 
 A very light PHP framework.
 
-Go to the wiki (https://github.com/scorsi/minimis/wiki) to see all docs. And learn how Minimis works.
+Go to the wiki (https://github.com/scorsi/minimis-framework/wiki) to see all docs. And learn how Minimis works.
 
 ## Next update
 - Query Builder:
