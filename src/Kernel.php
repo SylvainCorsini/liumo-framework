@@ -68,10 +68,9 @@ class Kernel
                     $this->response->setStatusCode(404);
                     throw new \Exception('Invalid middleware:' . $middlewareClass . '.');
                 }
-                $middlewareClass = new $middlewareClass($this->response, $this->request);
+                $middlewareClass = new $middlewareClass($this->response, $this->request, $this->query);
                 if ($middlewareClass->$middlewareMethod() === false) {
-                    $this->response->setStatusCode(401);
-                    throw new \Exception('401 Unauthorized');
+                    return $this->response->returnResponse();
                 }
             }
             if (!class_exists($handlerClass)) {
