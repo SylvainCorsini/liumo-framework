@@ -1,7 +1,6 @@
 <?php
 
 include __DIR__ . '/Kernel.php';
-include __DIR__ . '/Controller.php';
 
 include __DIR__ . '/template-engine/AliasFacade.php';
 include __DIR__ . '/template-engine/Exception.php';
