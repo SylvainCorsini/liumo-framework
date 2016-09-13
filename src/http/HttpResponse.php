@@ -1,14 +1,16 @@
 <?php
-
 namespace Src\Http;
+
+use Src\Crypt\Crypt;
 
 class HttpResponse implements Response
 {
     private $version = '1.1';
     private $statusCode = 200;
     private $statusText = 'OK';
-    private $headers = [];
-    private $cookies = [];
+    private $headers = array();
+    private $cookies = array();
+    private $deletedCookies = array();
     private $content;
 
     private $statusTexts = [
@@ -85,6 +87,15 @@ class HttpResponse implements Response
         foreach ($headers as $header) {
             header($header);
         }
+        $crypt = new Crypt();
+        $cookies = $this->getCookies();
+        foreach ($cookies as $cookie) {
+            setcookie(COOKIE_SUFFIX . $cookie->getName(), $crypt->encrypt($cookie->getValue()));
+        }
+        $deletedCookies = $this->getDeletedCookies();
+        foreach ($deletedCookies as $deletedCookie) {
+            setcookie($deletedCookie, "", -1);
+        }
         return $this->getContent();
     }
 
@@ -153,10 +164,8 @@ class HttpResponse implements Response
     {
         $headers = array_merge(
             $this->getRequestLineHeaders(),
-            $this->getStandardHeaders(),
-            $this->getCookieHeaders()
+            $this->getStandardHeaders()
         );
-
         return $headers;
     }
 
@@ -174,14 +183,25 @@ class HttpResponse implements Response
     /**
      * Deletes a cookie.
      *
-     * @param  Cookie $cookie
+     * @param  string $cookie
      * @return void
      */
-    public function deleteCookie(Cookie $cookie)
+    public function deleteCookie($cookie)
     {
-        $cookie->setValue('');
-        $cookie->setMaxAge(-1);
-        $this->cookies[$cookie->getName()] = $cookie;
+        if (isset($this->cookies[$cookie])) {
+            unset($this->cookies[$cookie]);
+        }
+        $this->deletedCookies[$cookie];
+        $this->deletedCookies[COOKIE_SUFFIX . $cookie];
+        echo COOKIE_SUFFIX . $cookie;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCookies()
+    {
+        return $this->cookies;
     }
 
     /**
@@ -220,6 +240,11 @@ class HttpResponse implements Response
         $this->setStatusCode(301);
     }
 
+    private function getDeletedCookies()
+    {
+        return $this->deletedCookies;
+    }
+
     private function getRequestLineHeaders()
     {
         $headers = [];
@@ -244,17 +269,6 @@ class HttpResponse implements Response
             foreach ($values as $value) {
                 $headers[] = "$name: $value";
             }
-        }
-
-        return $headers;
-    }
-
-    private function getCookieHeaders()
-    {
-        $headers = [];
-
-        foreach ($this->cookies as $cookie) {
-            $headers[] = 'Set-Cookie: ' . $cookie->getHeaderString();
         }
 
         return $headers;

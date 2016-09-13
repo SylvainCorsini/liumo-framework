@@ -1,6 +1,8 @@
 <?php
 namespace Src\Http;
 
+use Src\Crypt\Crypt;
+
 class HttpRequest implements Request
 {
     protected $getParameters;
@@ -8,7 +10,7 @@ class HttpRequest implements Request
     protected $server;
     protected $files;
     protected $cookies;
-    protected $session;
+    protected $inputStream;
 
     public function __construct(
         array $get,
@@ -25,8 +27,6 @@ class HttpRequest implements Request
         $this->files = $files;
         $this->server = $server;
         $this->inputStream = $inputStream;
-        session_start();
-        $this->session = $_SESSION;
     }
 
     /**
@@ -106,8 +106,12 @@ class HttpRequest implements Request
      */
     public function getCookie($key, $defaultValue = null)
     {
+        $crypt = new Crypt();
+
         if (array_key_exists($key, $this->cookies)) {
-            return $this->cookies[$key];
+            return $crypt->decrypt($this->cookies[$key]);
+        } elseif (array_key_exists(COOKIE_SUFFIX . $key, $this->cookies)) {
+            return $crypt->decrypt($this->cookies[COOKIE_SUFFIX . $key]);
         }
 
         return $defaultValue;

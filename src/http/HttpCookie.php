@@ -39,6 +39,16 @@ class HttpCookie implements Cookie
     }
 
     /**
+     * Returns the cookie value.
+     *
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
+
+    /**
      * Sets the cookie max age in seconds.
      *
      * @param  integer $seconds
@@ -47,6 +57,16 @@ class HttpCookie implements Cookie
     public function setMaxAge($seconds)
     {
         $this->maxAge = (int)$seconds;
+    }
+
+    /**
+     * Returns the cookie max age in seconds.
+     *
+     * @return integer
+     */
+    public function getMaxAge()
+    {
+        return $this->maxAge;
     }
 
     /**

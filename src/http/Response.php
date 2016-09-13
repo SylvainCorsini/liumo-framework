@@ -1,4 +1,5 @@
 <?php
+
 namespace Src\Http;
 
 interface Response
@@ -15,13 +16,13 @@ interface Response
 
     public function addCookie(Cookie $cookie);
 
-    public function deleteCookie(Cookie $cookie);
+    public function deleteCookie($cookie);
+
+    public function getCookies();
 
     public function setContent($content);
 
     public function getContent();
 
     public function redirect($url);
-
-    public function returnResponse();
 }

@@ -7,7 +7,11 @@ interface Cookie
 
     public function setValue($value);
 
+    public function getValue();
+
     public function setMaxAge($seconds);
+
+    public function getMaxAge();
 
     public function setDomain($domain);
 
