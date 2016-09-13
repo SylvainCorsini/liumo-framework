@@ -9,13 +9,22 @@ A very light PHP framework.
 
 Go to the wiki (https://github.com/scorsi/minimis-framework/wiki) to see all docs. And learn how Minimis works.
 
-## Next update
-- Query Builder:
-  - Add easy relationships methods.
-- Template Engine:
-  - Add forms builder.
-  - Add CSRF protection.
-  - Add markdown reader.
+## What's inside Minimis?
+- Easy and user-friendly organization bundle with Controllers and Middlewares.
+- Oriented template engine for designers (based on RainTPL by feulf).
+- Very ligh and complete query builder (based on Pixie by usmanhalalit).
+- Very fast and powerful routing (based on FastRoute by Nikic).
+- Easy and fast Auth functionnalities.
+- Easy and poweful Crypt functionnalities.
+- Automatically encrypted and suffixed cookies.
+- YAML routing (with symfony yaml component).
+- Kint (debugging tool) and Whoops (event logger and interface).
+
+And some choices:
+
+- No heavy event handler.
+- No heavy dependencies injection.
+- No facades.
 
 # License
 
