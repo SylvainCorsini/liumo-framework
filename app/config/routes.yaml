@@ -6,8 +6,32 @@
 #
 #
 
-default:
+home:
   method: GET
-  path: /[{test}]
+  path: /
   controller: Example::ExampleController::index
-  middlewares: Example::ExampleMiddleware::handler
+  middlewares: [Example::ExampleMiddleware::handler, Auth::AuthMiddleware::isConnected]
+
+getRegister:
+  method: GET
+  path: /register
+  controller: Auth::AuthController::getRegister
+  middlewares: [Auth::AuthMiddleware::isNotConnected]
+
+postRegister:
+  method: POST
+  path: /register
+  controller: Auth::AuthController::postRegister
+  middlewares: [Auth::AuthMiddleware::isNotConnected]
+
+getLogin:
+  method: GET
+  path: /login
+  controller: Auth::AuthController::getLogin
+  middlewares: [Auth::AuthMiddleware::isNotConnected]
+
+postLogin:
+  method: POST
+  path: /login
+  controller: Auth::AuthController::postLogin
+  middlewares: [Auth::AuthMiddleware::isNotConnected]
