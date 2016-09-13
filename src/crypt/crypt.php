@@ -12,7 +12,7 @@ class Crypt
      */
     function __construct($key = null)
     {
-        if ($key = null) {
+        if ($key == null) {
             $this->setKey(SECRET_KEY);
         } else {
             $this->setKey($key);
