@@ -1,5 +1,4 @@
 <?php
-
 namespace Src\Routing\Dispatcher;
 
 class MarkBased extends RegexBasedAbstract

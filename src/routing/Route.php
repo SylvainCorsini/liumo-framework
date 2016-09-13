@@ -1,5 +1,4 @@
 <?php
-
 namespace Src\Routing;
 
 class Route
@@ -14,9 +13,9 @@ class Route
      * Constructs a route (value object).
      *
      * @param string $httpMethod
-     * @param mixed  $handler
+     * @param mixed $handler
      * @param string $regex
-     * @param array  $variables
+     * @param array $variables
      */
     public function __construct($httpMethod, $handler, $middleware, $regex, $variables)
     {
@@ -37,7 +36,7 @@ class Route
     public function matches($str)
     {
         $regex = '~^' . $this->regex . '$~';
-        return (bool) preg_match($regex, $str);
+        return (bool)preg_match($regex, $str);
     }
 }
 

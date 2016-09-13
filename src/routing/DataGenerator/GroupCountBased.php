@@ -1,5 +1,4 @@
 <?php
-
 namespace Src\Routing\DataGenerator;
 
 class GroupCountBased extends RegexBasedAbstract

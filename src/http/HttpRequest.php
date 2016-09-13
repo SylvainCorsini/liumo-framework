@@ -1,5 +1,4 @@
 <?php
-
 namespace Src\Http;
 
 class HttpRequest implements Request
@@ -18,7 +17,8 @@ class HttpRequest implements Request
         array $files,
         array $server,
         $inputStream = ''
-    ) {
+    )
+    {
         $this->getParameters = $get;
         $this->postParameters = $post;
         $this->cookies = $cookies;
@@ -144,10 +144,10 @@ class HttpRequest implements Request
     }
 
     /**
-    * Returns raw values from the read-only stream that allows you to read raw data from the request body.
-    *
-    * @return string
-    */
+     * Returns raw values from the read-only stream that allows you to read raw data from the request body.
+     *
+     * @return string
+     */
     public function getRawBody()
     {
         return $this->inputStream;

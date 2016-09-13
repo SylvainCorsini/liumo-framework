@@ -11,6 +11,7 @@ use Src\Http\Request;
  * This class will initialize all middlewares dependencies.
  *
  */
+
 class Middleware
 {
     public $response;               // Src\Http\Response

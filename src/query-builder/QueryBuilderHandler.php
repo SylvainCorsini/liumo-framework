@@ -259,9 +259,9 @@ class QueryBuilderHandler
         }
 
         if (is_array($row[0])) {
-            return (int) $row[0]['field'];
+            return (int)$row[0]['field'];
         } elseif (is_object($row[0])) {
-            return (int) $row[0]->field;
+            return (int)$row[0]->field;
         }
 
         return 0;
@@ -269,7 +269,7 @@ class QueryBuilderHandler
 
     /**
      * @param string $type
-     * @param array  $dataToBePassed
+     * @param array $dataToBePassed
      *
      * @return mixed
      * @throws Exception
@@ -291,7 +291,7 @@ class QueryBuilderHandler
 
     /**
      * @param QueryBuilderHandler $queryBuilder
-     * @param null                $alias
+     * @param null $alias
      *
      * @return Raw
      */
@@ -791,7 +791,7 @@ class QueryBuilderHandler
         // Build a new JoinBuilder class, keep it by reference so any changes made
         // in the closure should reflect here
         $joinBuilder = $this->container->build('\\Src\\QueryBuilder\\JoinBuilder', array($this->connection));
-        $joinBuilder = & $joinBuilder;
+        $joinBuilder = &$joinBuilder;
         // Call the closure with our new joinBuilder object
         $key($joinBuilder);
         $table = $this->addTablePrefix($table, false);
@@ -1012,7 +1012,7 @@ class QueryBuilderHandler
 
     /**
      * @param          $event
-     * @param string   $table
+     * @param string $table
      * @param          $action
      *
      * @return void
@@ -1030,7 +1030,7 @@ class QueryBuilderHandler
 
     /**
      * @param          $event
-     * @param string   $table
+     * @param string $table
      *
      * @return void
      */

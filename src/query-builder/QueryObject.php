@@ -59,8 +59,8 @@ class QueryObject
      *
      * Reference: http://stackoverflow.com/a/1376838/656489
      *
-     * @param string $query  The sql query with parameter placeholders
-     * @param array  $params The array of substitution parameters
+     * @param string $query The sql query with parameter placeholders
+     * @param array $params The array of substitution parameters
      *
      * @return string The interpolated query
      */

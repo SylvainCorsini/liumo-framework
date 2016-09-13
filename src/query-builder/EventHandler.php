@@ -34,11 +34,11 @@ class EventHandler
         }
 
         // Find event with *
-        if(isset($this->events[$table])) {
-            foreach($this->events[$table] as $name => $e) {
-                if (stripos($name, '*') > - 1) {
+        if (isset($this->events[$table])) {
+            foreach ($this->events[$table] as $name => $e) {
+                if (stripos($name, '*') > -1) {
                     $name = substr($name, 0, strpos($name, '*'));
-                    if (stripos($event, $name) > - 1) {
+                    if (stripos($event, $name) > -1) {
                         return $e;
                     }
                 }
@@ -50,7 +50,7 @@ class EventHandler
 
     /**
      * @param          $event
-     * @param string   $table
+     * @param string $table
      * @param          $action
      *
      * @return void
@@ -64,7 +64,7 @@ class EventHandler
 
     /**
      * @param          $event
-     * @param string   $table
+     * @param string $table
      *
      * @return void
      */

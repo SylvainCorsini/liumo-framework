@@ -1,5 +1,4 @@
 <?php
-
 namespace Src\Http;
 
 class CookieBuilder
@@ -11,22 +10,22 @@ class CookieBuilder
 
     public function setDefaultDomain($domain)
     {
-        $this->defaultDomain = (string) $domain;
+        $this->defaultDomain = (string)$domain;
     }
 
     public function setDefaultPath($path)
     {
-        $this->defaultPath = (string) $path;
+        $this->defaultPath = (string)$path;
     }
 
     public function setDefaultSecure($secure)
     {
-        $this->defaultSecure = (bool) $secure;
+        $this->defaultSecure = (bool)$secure;
     }
 
     public function setDefaultHttpOnly($httpOnly)
     {
-        $this->defaultHttpOnly = (bool) $httpOnly;
+        $this->defaultHttpOnly = (bool)$httpOnly;
     }
 
     public function build($name, $value)

@@ -5,8 +5,8 @@ class NestedCriteria extends QueryBuilderHandler
 {
     /**
      * @param        $key
-     * @param null   $operator
-     * @param null   $value
+     * @param null $operator
+     * @param null $value
      * @param string $joiner
      *
      * @return $this

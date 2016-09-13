@@ -1,5 +1,4 @@
 <?php
-
 namespace Src\Http;
 
 class HttpCookie implements Cookie
@@ -14,8 +13,8 @@ class HttpCookie implements Cookie
 
     public function __construct($name, $value)
     {
-        $this->name = (string) $name;
-        $this->value = (string) $value;
+        $this->name = (string)$name;
+        $this->value = (string)$value;
     }
 
     /**
@@ -36,7 +35,7 @@ class HttpCookie implements Cookie
      */
     public function setValue($value)
     {
-        $this->value = (string) $value;
+        $this->value = (string)$value;
     }
 
     /**
@@ -47,7 +46,7 @@ class HttpCookie implements Cookie
      */
     public function setMaxAge($seconds)
     {
-        $this->maxAge = (int) $seconds;
+        $this->maxAge = (int)$seconds;
     }
 
     /**
@@ -58,7 +57,7 @@ class HttpCookie implements Cookie
      */
     public function setDomain($domain)
     {
-        $this->domain = (string) $domain;
+        $this->domain = (string)$domain;
     }
 
     /**
@@ -69,7 +68,7 @@ class HttpCookie implements Cookie
      */
     public function setPath($path)
     {
-        $this->path = (string) $path;
+        $this->path = (string)$path;
     }
 
     /**
@@ -80,7 +79,7 @@ class HttpCookie implements Cookie
      */
     public function setSecure($secure)
     {
-        $this->secure = (bool) $secure;
+        $this->secure = (bool)$secure;
     }
 
     /**
@@ -91,7 +90,7 @@ class HttpCookie implements Cookie
      */
     public function setHttpOnly($httpOnly)
     {
-        $this->httpOnly = (bool) $httpOnly;
+        $this->httpOnly = (bool)$httpOnly;
     }
 
     /**
@@ -119,7 +118,7 @@ class HttpCookie implements Cookie
     private function getMaxAgeString()
     {
         if ($this->maxAge !== null) {
-            return 'Max-Age='. $this->maxAge;
+            return 'Max-Age=' . $this->maxAge;
         }
     }
 

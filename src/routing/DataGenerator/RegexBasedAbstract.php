@@ -1,5 +1,4 @@
 <?php
-
 namespace Src\Routing\DataGenerator;
 
 use Src\Routing\DataGenerator;
@@ -12,6 +11,7 @@ abstract class RegexBasedAbstract implements DataGenerator
     protected $methodToRegexToRoutesMap = [];
 
     protected abstract function getApproxChunkSize();
+
     protected abstract function processChunk($regexToRoutesMap);
 
     public function addRoute($httpMethod, $routeData, $handler, $middleware)
@@ -38,7 +38,7 @@ abstract class RegexBasedAbstract implements DataGenerator
         foreach ($this->methodToRegexToRoutesMap as $method => $regexToRoutesMap) {
             $chunkSize = $this->computeChunkSize(count($regexToRoutesMap));
             $chunks = array_chunk($regexToRoutesMap, $chunkSize, true);
-            $data[$method] =  array_map([$this, 'processChunk'], $chunks);
+            $data[$method] = array_map([$this, 'processChunk'], $chunks);
         }
         return $data;
     }

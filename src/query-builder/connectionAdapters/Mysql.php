@@ -11,11 +11,11 @@ class Mysql extends BaseAdapter
     protected function doConnect($config)
     {
         $connectionString = "mysql:dbname={$config['database']}";
-        
+
         if (isset($config['host'])) {
             $connectionString .= ";host={$config['host']}";
         }
-        
+
         if (isset($config['port'])) {
             $connectionString .= ";port={$config['port']}";
         }

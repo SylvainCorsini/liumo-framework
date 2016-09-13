@@ -29,8 +29,9 @@ class PluginContainer
      * @throws \InvalidArgumentException Plugin of same name already exists in container.
      * @return PluginContainer
      */
-    public function addPlugin($name, IPlugin $plugin) {
-        if (isset($this->plugins[(string) $name])) {
+    public function addPlugin($name, IPlugin $plugin)
+    {
+        if (isset($this->plugins[(string)$name])) {
             throw new \InvalidArgumentException('Plugin named "' . $name . '" already exists in container');
         }
         return $this->setPlugin($name, $plugin);
@@ -43,11 +44,12 @@ class PluginContainer
      * @param IPlugin $plugin
      * @return PluginContainer
      */
-    public function setPlugin($name, IPlugin $plugin) {
+    public function setPlugin($name, IPlugin $plugin)
+    {
         $this->removePlugin($name);
-        $this->plugins[(string) $name] = $plugin;
+        $this->plugins[(string)$name] = $plugin;
 
-        foreach ((array) $plugin->declareHooks() as $hook => $method) {
+        foreach ((array)$plugin->declareHooks() as $hook => $method) {
             if (is_int($hook)) {
                 // numerical key, method has same name as hook
                 $hook = $method;
@@ -64,8 +66,9 @@ class PluginContainer
         return $this;
     }
 
-    public function removePlugin($name) {
-        $name = (string) $name;
+    public function removePlugin($name)
+    {
+        $name = (string)$name;
         if (!isset($this->plugins[$name])) {
             return null;
         }
@@ -89,12 +92,13 @@ class PluginContainer
      * @param \ArrayAccess $context
      * @return PluginContainer
      */
-    public function run($hook_name, \ArrayAccess $context ){
+    public function run($hook_name, \ArrayAccess $context)
+    {
         if (!isset($this->hooks[$hook_name])) {
             return $this;
         }
         $context['_hook_name'] = $hook_name;
-        foreach( $this->hooks[$hook_name] as $callable ){
+        foreach ($this->hooks[$hook_name] as $callable) {
             call_user_func($callable, $context);
         }
         return $this;
@@ -108,6 +112,6 @@ class PluginContainer
      */
     public function createContext($params = array())
     {
-        return new \ArrayObject((array) $params, \ArrayObject::ARRAY_AS_PROPS);
+        return new \ArrayObject((array)$params, \ArrayObject::ARRAY_AS_PROPS);
     }
 }

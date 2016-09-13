@@ -92,19 +92,19 @@ class HttpResponse implements Response
      * Sets the HTTP status code.
      *
      * @param  integer $statusCode
-     * @param  string  $statusText (optional)
+     * @param  string $statusText (optional)
      * @return void
      */
     public function setStatusCode($statusCode, $statusText = null)
     {
         if ($statusText === null
-            && array_key_exists((int) $statusCode, $this->statusTexts)
+            && array_key_exists((int)$statusCode, $this->statusTexts)
         ) {
             $statusText = $this->statusTexts[$statusCode];
         }
 
-        $this->statusCode = (int) $statusCode;
-        $this->statusText = (string) $statusText;
+        $this->statusCode = (int)$statusCode;
+        $this->statusText = (string)$statusText;
     }
 
     /**
@@ -125,7 +125,7 @@ class HttpResponse implements Response
      */
     public function addHeader($name, $value)
     {
-        $this->headers[$name][] = (string) $value;
+        $this->headers[$name][] = (string)$value;
     }
 
     /**
@@ -140,7 +140,7 @@ class HttpResponse implements Response
     public function setHeader($name, $value)
     {
         $this->headers[$name] = [
-            (string) $value,
+            (string)$value,
         ];
     }
 
@@ -192,7 +192,7 @@ class HttpResponse implements Response
      */
     public function setContent($content)
     {
-        $this->content = (string) $content;
+        $this->content = (string)$content;
     }
 
     /**

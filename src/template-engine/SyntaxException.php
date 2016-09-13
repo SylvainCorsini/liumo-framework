@@ -28,11 +28,12 @@ class SyntaxException extends Exception
      *
      * @return SyntaxException | int | null
      */
-    public function templateLine($line){
-        if(is_null($line))
+    public function templateLine($line)
+    {
+        if (is_null($line))
             return $this->templateLine;
 
-        $this->templateLine = (int) $line;
+        $this->templateLine = (int)$line;
         return $this;
     }
 
@@ -43,11 +44,12 @@ class SyntaxException extends Exception
      *
      * @return SyntaxException | string | null
      */
-    public function tag($tag=null){
-        if(is_null($tag))
+    public function tag($tag = null)
+    {
+        if (is_null($tag))
             return $this->tag;
 
-        $this->tag = (string) $tag;
+        $this->tag = (string)$tag;
         return $this;
     }
 }

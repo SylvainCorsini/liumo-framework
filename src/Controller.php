@@ -13,6 +13,7 @@ use Src\TemplateEngine\Renderer;
  * This class will initialize all controllers dependencies.
  *
  */
+
 class Controller
 {
     public $response;               // Src\Http\Response

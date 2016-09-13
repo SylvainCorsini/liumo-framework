@@ -1,5 +1,4 @@
 <?php
-
 namespace Src\Routing\Dispatcher;
 
 class GroupPosBased extends RegexBasedAbstract
@@ -17,7 +16,7 @@ class GroupPosBased extends RegexBasedAbstract
             }
 
             // find first non-empty match
-            for ($i = 1; '' === $matches[$i]; ++$i);
+            for ($i = 1; '' === $matches[$i]; ++$i) ;
 
             list($handler, $varNames) = $data['routeMap'][$i];
 

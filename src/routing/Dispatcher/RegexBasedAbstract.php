@@ -1,5 +1,4 @@
 <?php
-
 namespace Src\Routing\Dispatcher;
 
 use Src\Routing\Dispatcher;

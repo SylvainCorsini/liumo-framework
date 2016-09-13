@@ -38,13 +38,13 @@ class Connection
 
     /**
      * @param               $adapter
-     * @param array         $adapterConfig
-     * @param null|string   $alias
-     * @param Container     $container
+     * @param array $adapterConfig
+     * @param null|string $alias
+     * @param Container $container
      */
     public function __construct($adapter, array $adapterConfig, $alias = null, Container $container = null)
     {
-        $container = $container ? : new Container();
+        $container = $container ?: new Container();
 
         $this->container = $container;
 

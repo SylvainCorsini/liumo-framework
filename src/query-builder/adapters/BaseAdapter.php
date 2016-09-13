@@ -141,9 +141,9 @@ abstract class BaseAdapter
         foreach ($data as $key => $value) {
             $keys[] = $key;
             if ($value instanceof Raw) {
-                $values[] = (string) $value;
+                $values[] = (string)$value;
             } else {
-                $values[] =  '?';
+                $values[] = '?';
                 $bindings[] = $value;
             }
         }
@@ -314,7 +314,7 @@ abstract class BaseAdapter
      *
      * @param array $pieces
      * @param       $glue
-     * @param bool  $wrapSanitizer
+     * @param bool $wrapSanitizer
      *
      * @return string
      */
@@ -378,7 +378,7 @@ abstract class BaseAdapter
                     array($this->connection)
                 );
 
-                $nestedCriteria = & $nestedCriteria;
+                $nestedCriteria = &$nestedCriteria;
                 // Call the closure with our new nestedCriteria object
                 $key($nestedCriteria);
                 // Get the criteria only query from the nestedCriteria object
@@ -516,7 +516,7 @@ abstract class BaseAdapter
                 $table = $this->wrapSanitizer($mainTable) . ' AS ' . $this->wrapSanitizer($aliasTable);
             } else {
                 $table = $joinArr['table'] instanceof Raw ?
-                    (string) $joinArr['table'] :
+                    (string)$joinArr['table'] :
                     $this->wrapSanitizer($joinArr['table']);
             }
             $joinBuilder = $joinArr['joinBuilder'];

@@ -6,7 +6,8 @@ namespace Src\Container;
  *
  * Class AliasFacade
  */
-class AliasFacade {
+class AliasFacade
+{
 
     /**
      * @var Container
@@ -21,7 +22,7 @@ class AliasFacade {
      */
     public static function __callStatic($method, $args)
     {
-        if(!static::$containerInstance) {
+        if (!static::$containerInstance) {
             static::$containerInstance = new Container();
         }
 

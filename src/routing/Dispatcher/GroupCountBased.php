@@ -1,10 +1,10 @@
 <?php
-
 namespace Src\Routing\Dispatcher;
 
 class GroupCountBased extends RegexBasedAbstract
 {
-    public function __construct($data) {
+    public function __construct($data)
+    {
         list($this->staticRouteMap, $this->variableRouteData) = $data;
     }
 

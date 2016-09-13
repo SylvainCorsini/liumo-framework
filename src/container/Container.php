@@ -27,8 +27,8 @@ class Container
      * Register an object with a key
      *
      * @param  string $key
-     * @param  mixed  $object
-     * @param  bool   $singleton
+     * @param  mixed $object
+     * @param  bool $singleton
      *
      * @return void
      */
@@ -53,7 +53,7 @@ class Container
      * Register as singleton.
      *
      * @param  string $key
-     * @param  mixed  $object
+     * @param  mixed $object
      *
      * @return void
      */
@@ -67,7 +67,7 @@ class Container
      * Useful for replacing with Mocked instance
      *
      * @param  string $key
-     * @param  mixed  $instance
+     * @param  mixed $instance
      *
      * @return void
      */
@@ -87,7 +87,7 @@ class Container
      *
      *
      * @param  string $key
-     * @param  array  $parameters
+     * @param  array $parameters
      *
      * @return mixed
      */
@@ -123,7 +123,7 @@ class Container
      * Instantiate an instance of the given type.
      *
      * @param  string $key
-     * @param  array  $parameters
+     * @param  array $parameters
      *
      * @throws \Exception
      * @return mixed

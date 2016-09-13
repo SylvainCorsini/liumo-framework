@@ -63,13 +63,14 @@ class Renderer
     /**
      * Draw the template
      *
-     * @param string $templateFilePath: name of the template file
-     * @param bool $toString: if the method should return a string
+     * @param string $templateFilePath : name of the template file
+     * @param bool $toString : if the method should return a string
      * or echo the output
      *
      * @return void | string: depending of the $toString
      */
-    public function draw($templateFilePath, $toString = true) {
+    public function draw($templateFilePath, $toString = true)
+    {
         extract($this->var);
         // Merge local and static configurations
         $this->config = $this->objectConf + static::$conf;
@@ -80,9 +81,9 @@ class Renderer
 
         // Execute plugins, before_parse
         $context = $this->getPlugins()->createContext(array(
-                'code' => $html,
-                'conf' => $this->config,
-            ));
+            'code' => $html,
+            'conf' => $this->config,
+        ));
         $this->getPlugins()->run('afterDraw', $context);
         $html = $context->code;
 
@@ -95,12 +96,13 @@ class Renderer
     /**
      * Draw a string
      *
-     * @param string $string: string in RainTpl format
-     * @param bool $toString: if the param
+     * @param string $string : string in RainTpl format
+     * @param bool $toString : if the param
      *
      * @return void | string: depending of the $toString
      */
-    public function drawString($string, $toString = true) {
+    public function drawString($string, $toString = true)
+    {
         extract($this->var);
         // Merge local and static configurations
         $this->config = $this->objectConf + static::$conf;
@@ -110,9 +112,9 @@ class Renderer
 
         // Execute plugins, before_parse
         $context = $this->getPlugins()->createContext(array(
-                'code' => $html,
-                'conf' => $this->config,
-            ));
+            'code' => $html,
+            'conf' => $this->config,
+        ));
         $this->getPlugins()->run('afterDraw', $context);
         $html = $context->code;
 
@@ -126,12 +128,13 @@ class Renderer
     /**
      * Object specific configuration
      *
-     * @param string, array $setting: name of the setting to configure
+     * @param string , array $setting: name of the setting to configure
      * or associative array type 'setting' => 'value'
-     * @param mixed $value: value of the setting to configure
+     * @param mixed $value : value of the setting to configure
      * @return Renderer $this
      */
-    public function objectConfigure($setting, $value = null) {
+    public function objectConfigure($setting, $value = null)
+    {
         if (is_array($setting))
             foreach ($setting as $key => $value)
                 $this->objectConfigure($key, $value);
@@ -150,11 +153,12 @@ class Renderer
     /**
      * Global configurations
      *
-     * @param string, array $setting: name of the setting to configure
+     * @param string , array $setting: name of the setting to configure
      * or associative array type 'setting' => 'value'
-     * @param mixed $value: value of the setting to configure
+     * @param mixed $value : value of the setting to configure
      */
-    public static function configure($setting, $value = null) {
+    public static function configure($setting, $value = null)
+    {
         if (is_array($setting))
             foreach ($setting as $key => $value)
                 static::configure($key, $value);
@@ -179,11 +183,12 @@ class Renderer
      *
      * @return Renderer $this
      */
-    public function assign($variable, $value = null) {
+    public function assign($variable, $value = null)
+    {
         if (is_array($variable))
             foreach ($variable as $key => $value) {
-		$this->assign($key, $value);
-	    }
+                $this->assign($key, $value);
+            }
         else
             $this->var[$variable] = $value;
 
@@ -194,11 +199,12 @@ class Renderer
      * Clean the expired files from cache
      * @param int $expireTime Set the expiration time
      */
-    public static function clean($expireTime = 2592000) {
+    public static function clean($expireTime = 2592000)
+    {
         $files = glob(static::$conf['cache_dir'] . "*.rtpl.php");
         $time = time() - $expireTime;
         foreach ($files as $file)
-            if ($time > filemtime($file) )
+            if ($time > filemtime($file))
                 unlink($file);
     }
 
@@ -207,9 +213,10 @@ class Renderer
      *
      * @param string $tag nombre del tag
      * @param string $parse regular expression to parse the tag
-     * @param callable $function: action to do when the tag is parsed
+     * @param callable $function : action to do when the tag is parsed
      */
-    public static function registerTag($tag, $parse, $function) {
+    public static function registerTag($tag, $parse, $function)
+    {
         static::$registered_tags[$tag] = array("parse" => $parse, "function" => $function);
     }
 
@@ -219,7 +226,8 @@ class Renderer
      * @param IPlugin $plugin
      * @param string $name name can be used to distinguish plugins of same class.
      */
-    public static function registerPlugin(IPlugin $plugin, $name = '') {
+    public static function registerPlugin(IPlugin $plugin, $name = '')
+    {
         $name = (string)$name ?: \get_class($plugin);
 
         static::getPlugins()->addPlugin($name, $plugin);
@@ -230,7 +238,8 @@ class Renderer
      *
      * @param string $name
      */
-    public static function removePlugin($name) {
+    public static function removePlugin($name)
+    {
         static::getPlugins()->removePlugin($name);
     }
 
@@ -239,7 +248,8 @@ class Renderer
      *
      * @return PluginContainer
      */
-    protected static function getPlugins() {
+    protected static function getPlugins()
+    {
         return static::$plugins
             ?: static::$plugins = new PluginContainer();
     }
@@ -251,7 +261,8 @@ class Renderer
      * @return string : full filepath that php must use to include
      * @throws Exception
      */
-    protected function checkTemplate($template) {
+    protected function checkTemplate($template)
+    {
         // set filename
         $templateName = basename($template);
         $templateBasedir = strpos($template, '/') !== false ? dirname($template) . '/' : null;
@@ -277,7 +288,7 @@ class Renderer
                 $isFileNotExist = false;
             }
         } else {
-            foreach($templateDirectories as $templateDirectory) {
+            foreach ($templateDirectories as $templateDirectory) {
                 $templateDirectory .= $templateBasedir;
                 $templateFilepath = $templateDirectory . $templateName . '.' . $this->config['tpl_ext'];
                 $parsedTemplateFilepath = $this->config['cache_dir'] . $templateName . "." . md5($templateDirectory . serialize($this->config['checksum'])) . '.rtpl.php';
@@ -297,7 +308,7 @@ class Renderer
         }
 
         // Compile the template if the original has been updated
-        if ($this->config['debug'] || !file_exists($parsedTemplateFilepath) || ( filemtime($parsedTemplateFilepath) < filemtime($templateFilepath) )) {
+        if ($this->config['debug'] || !file_exists($parsedTemplateFilepath) || (filemtime($parsedTemplateFilepath) < filemtime($templateFilepath))) {
             $parser = new Parser($this->config, static::$plugins, static::$registered_tags);
             $parser->compileFile($templateName, $templateBasedir, $templateDirectory, $templateFilepath, $parsedTemplateFilepath);
         }
@@ -307,11 +318,12 @@ class Renderer
     /**
      * Compile a string if necessary
      *
-     * @param string $string: RainTpl template string to compile
+     * @param string $string : RainTpl template string to compile
      *
      * @return string: full filepath that php must use to include
      */
-    protected function checkString($string) {
+    protected function checkString($string)
+    {
 
         // set filename
         $templateName = md5($string . implode($this->config['checksum']));
@@ -329,13 +341,14 @@ class Renderer
         return $parsedTemplateFilepath;
     }
 
-    private static function addTrailingSlash($folder) {
+    private static function addTrailingSlash($folder)
+    {
 
         if (is_array($folder)) {
-            foreach($folder as &$f) {
+            foreach ($folder as &$f) {
                 $f = self::addTrailingSlash($f);
             }
-        } elseif ( strlen($folder) > 0 && $folder[0] != '/' ) {
+        } elseif (strlen($folder) > 0 && $folder[0] != '/') {
             $folder = $folder . "/";
         }
         return $folder;
