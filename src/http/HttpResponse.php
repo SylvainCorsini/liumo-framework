@@ -213,6 +213,9 @@ class HttpResponse implements Response
      */
     public function redirect($url)
     {
+        if (!preg_match("(http|https)", $url)) {
+            $url = DEFAULT_URI . $url;
+        }
         $this->setHeader('Location', $url);
         $this->setStatusCode(301);
     }
