@@ -3,6 +3,8 @@ namespace Src;
 
 use Src\Http\Response;
 use Src\Http\Request;
+use Src\QueryBuilder\QueryBuilderHandler;
+
 
 /*
  * Middleware Class
@@ -12,21 +14,24 @@ use Src\Http\Request;
  *
  */
 
-class Middleware
+class CoreMiddleware
 {
     public $response;               // Src\Http\Response
     public $request;                // Src\Http\Request
+    public $query;                  // Src\QueryBuilder\QB\QueryBuilderHandler
 
     /**
      * Controller constructor.
      *
      * @param Response $response
      * @param Request $request
+     * @param QueryBuilderHandler $queryBuilderHandler
      */
-    public function __construct(Response $response, Request $request)
+    public function __construct(Response $response, Request $request, QueryBuilderHandler $queryBuilderHandler)
     {
         $this->response = $response;
         $this->request = $request;
+        $this->query = $queryBuilderHandler;
     }
 
     /**

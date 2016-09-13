@@ -4,21 +4,19 @@ namespace Src;
 use Src\Http\Response;
 use Src\Http\Request;
 use Src\QueryBuilder\QueryBuilderHandler;
-use Src\TemplateEngine\Renderer;
 
 /*
- * Controller Class
- ******************
+ * CoreClass
+ ***********
  *
- * This class will initialize all controllers dependencies.
+ * This class will initialize all bundles classes dependencies.
  *
  */
 
-class CoreController
+class CoreClass
 {
     public $response;               // Src\Http\Response
     public $request;                // Src\Http\Request
-    public $renderer;               // Src\TemplateEngine\TemplateEngine
     public $query;                  // Src\QueryBuilder\QB\QueryBuilderHandler
 
     /**
@@ -26,15 +24,13 @@ class CoreController
      *
      * @param Response $response
      * @param Request $request
-     * @param Renderer $templateEngine
-     * @param QueryBuilderHandler $queryBuilder
+     * @param QueryBuilderHandler $queryBuilderHandler
      */
-    public function __construct(Response $response, Request $request, Renderer $templateEngine, QueryBuilderHandler $queryBuilder)
+    public function __construct(Response $response, Request $request, QueryBuilderHandler $queryBuilderHandler)
     {
         $this->response = $response;
         $this->request = $request;
-        $this->renderer = $templateEngine;
-        $this->query = $queryBuilder;
+        $this->query = $queryBuilderHandler;
     }
 
     /**
