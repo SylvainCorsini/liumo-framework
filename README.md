@@ -16,6 +16,7 @@ Go to the wiki (https://github.com/scorsi/minimis-framework/wiki) to see all doc
 - Very fast and powerful routing (based on FastRoute by Nikic).
 - Easy and fast Auth functionnalities.
 - Easy and poweful Crypt functionnalities.
+- Powerful Http (Response, Request, Cookie) classes.
 - Automatically encrypted and suffixed cookies.
 - YAML routing (with symfony yaml component).
 - Kint (debugging tool) and Whoops (event logger and interface).
