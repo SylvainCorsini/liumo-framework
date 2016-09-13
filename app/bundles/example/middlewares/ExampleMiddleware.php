@@ -1,9 +1,9 @@
 <?php
 namespace App\Bundles\Example\Middlewares;
 
-use Src\Middleware;
+use Src\CoreMiddleware;
 
-class ExampleMiddleware extends Middleware
+class ExampleMiddleware extends CoreMiddleware
 {
     public function handler()
     {

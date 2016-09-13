@@ -1,9 +1,9 @@
 <?php
 namespace App\Bundles\Example\Controllers;
 
-use Src\Controller;
+use Src\CoreController;
 
-class ExampleController extends Controller
+class ExampleController extends CoreController
 {
     public function index()
     {
