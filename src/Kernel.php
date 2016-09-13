@@ -57,26 +57,29 @@ class Kernel
             $this->response->setStatusCode(405);
             throw new \Exception('405 Method Not Allowed');
         } elseif ($routeInfo[0] == Dispatcher::FOUND) {
-            $handler = $routeInfo[1][0];
+            $handlerClass = $routeInfo[1][0][0];
+            $handlerMethod = $routeInfo[1][0][1];
             $vars = $routeInfo[2];
             $middlewares = $routeInfo[1][1];
             foreach ($middlewares as $middleware) {
-                if (!class_exists($middleware[0])) {
+                $middlewareClass = $middleware[0];
+                $middlewareMethod = $middleware[1];
+                if (!class_exists($middlewareClass)) {
                     $this->response->setStatusCode(404);
-                    throw new \Exception('Invalid middleware:' . $middleware[0] . '.');
+                    throw new \Exception('Invalid middleware:' . $middlewareClass . '.');
                 }
-                $middleware[0] = new $middleware[0]($this->response, $this->request);
-                if ($middleware[0]->$middleware[1]() === false) {
+                $middlewareClass = new $middlewareClass($this->response, $this->request);
+                if ($middlewareClass->$middlewareMethod() === false) {
                     $this->response->setStatusCode(401);
                     throw new \Exception('401 Unauthorized');
                 }
             }
-            if (!class_exists($handler[0])) {
+            if (!class_exists($handlerClass)) {
                 $this->response->setStatusCode(404);
-                throw new \Exception('Invalid controller:' . $handler[0] . '.');
+                throw new \Exception('Invalid controller:' . $handlerClass . '.');
             }
-            $handler[0] = new $handler[0]($this->response, $this->request, $this->renderer, $this->query);
-            $return = $handler[0]->$handler[1]($vars);
+            $handlerClass = new $handlerClass($this->response, $this->request, $this->renderer, $this->query);
+            $return = $handlerClass->$handlerMethod($vars);
             if (is_string($return)) {
                 $this->response->setContent($return);
             } elseif (is_object($return) && is_a($return, 'Http\HttpResponse')) {
