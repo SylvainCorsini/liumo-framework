@@ -10,7 +10,7 @@ A very light PHP framework.
 Go to the wiki (https://github.com/scorsi/minimis-framework/wiki) to see all docs. And learn how Minimis works.
 
 ## What's inside Minimis?
-- Easy and user-friendly organization bundle with Controllers and Middlewares.
+- Easy and user-friendly organization with Controllers, Middlewares and Views.
 - Oriented template engine for designers (based on RainTPL by feulf).
 - Very ligh and complete query builder (based on Pixie by usmanhalalit).
 - Very fast and powerful routing (based on FastRoute by nikic).
