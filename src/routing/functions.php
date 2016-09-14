@@ -21,22 +21,22 @@ if (!function_exists('Src\Routing\simpleDispatcher')) {
                 throw new \Exception('A controller is needed to create a route.');
             }
             $controller = array(
-                0 => 'App\\Bundles\\' . explode('::', $routeParam['controller'])[0] . '\\Controllers\\' . explode('::', $routeParam['controller'])[1],
-                1 => explode('::', $routeParam['controller'])[2]
+                0 => 'App\\Controllers\\' . explode('::', $routeParam['controller'])[0],
+                1 => explode('::', $routeParam['controller'])[1]
             );
             $middleware = array();
             if (!empty($routeParam['middlewares'])) {
                 if (is_array($routeParam['middlewares'])) {
                     foreach ($routeParam['middlewares'] as $key => $value) {
                         $middleware[$key] = array(
-                            0 => 'App\\Bundles\\' . explode('::', $value)[0] . '\\Middlewares\\' . explode('::', $value)[1],
-                            1 => explode('::', $value)[2]
+                            0 => 'App\\Middlewares\\' . explode('::', $value)[0],
+                            1 => explode('::', $value)[1]
                         );
                     }
                 } else {
                     $middleware[] = array(
-                        0 => 'App\\Bundles\\' . explode('::', $routeParam['middlewares'])[0] . '\\Middlewares\\' . explode('::', $routeParam['middlewares'])[1],
-                        1 => explode('::', $routeParam['middlewares'])[2]
+                        0 => 'App\\Middlewares\\' . explode('::', $routeParam['middlewares'])[0],
+                        1 => explode('::', $routeParam['middlewares'])[1]
                     );
                 }
             }

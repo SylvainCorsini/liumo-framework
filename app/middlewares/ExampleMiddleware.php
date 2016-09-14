@@ -1,5 +1,5 @@
 <?php
-namespace App\Bundles\Example\Middlewares;
+namespace App\Middlewares;
 
 use Src\CoreMiddleware;
 

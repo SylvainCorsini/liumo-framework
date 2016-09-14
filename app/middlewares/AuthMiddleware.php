@@ -1,8 +1,8 @@
 <?php
-namespace App\Bundles\Auth\Middlewares;
+namespace App\Middlewares;
 
 use Src\CoreMiddleware;
-use App\Bundles\Auth\AuthClass;
+use App\Classes\AuthClass;
 
 class AuthMiddleware extends CoreMiddleware
 {

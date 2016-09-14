@@ -1,8 +1,8 @@
 <?php
-namespace App\Bundles\Auth\Controllers;
+namespace App\Controllers;
 
 use Src\CoreController;
-use App\Bundles\Auth\AuthClass;
+use App\Classes\AuthClass;
 
 class AuthController extends CoreController
 {

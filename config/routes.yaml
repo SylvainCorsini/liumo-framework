@@ -1,0 +1,37 @@
+#
+# Application Routes
+####################
+#
+# Here is where you can register all of the routes for your application.
+#
+#
+
+home:
+  method: GET
+  path: /
+  controller: ExampleController::index
+  middlewares: [ExampleMiddleware::handler, AuthMiddleware::isConnected]
+
+getRegister:
+  method: GET
+  path: /register
+  controller: AuthController::getRegister
+  middlewares: [AuthMiddleware::isNotConnected]
+
+postRegister:
+  method: POST
+  path: /register
+  controller: AuthController::postRegister
+  middlewares: [AuthMiddleware::isNotConnected]
+
+getLogin:
+  method: GET
+  path: /login
+  controller: AuthController::getLogin
+  middlewares: [AuthMiddleware::isNotConnected]
+
+postLogin:
+  method: POST
+  path: /login
+  controller: AuthController::postLogin
+  middlewares: [AuthMiddleware::isNotConnected]

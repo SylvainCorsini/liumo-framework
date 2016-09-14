@@ -6,7 +6,7 @@
 
 const DEVELOPMENT_ENVIRONMENT = true; // Do not forget to change it to false on prod.
 const DEFAULT_URI = '/minimis/public';
-const CACHE_PATH = 'app/cache/';
+const CACHE_PATH = 'cache/';
 const SECRET_KEY = 'd0a7e7997b6d5fcd55f4b5c32611b87cd923e88837b63bf2941ef819dc8ca282';
 const COOKIE_SUFFIX = 'minimis_';
 
@@ -14,7 +14,7 @@ const COOKIE_SUFFIX = 'minimis_';
  * ROUTES CONFIG
  */
 
-const ROUTES_FILE = 'app/config/routes.yaml';
+const ROUTES_FILE = 'config/routes.yaml';
 const ROUTES_CACHE_ENABLED = true;
 const ROUTES_CACHE_FILENAME = 'routes.php';
 

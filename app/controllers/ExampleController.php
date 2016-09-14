@@ -1,5 +1,5 @@
 <?php
-namespace App\Bundles\Example\Controllers;
+namespace App\Controllers;
 
 use Src\CoreController;
 

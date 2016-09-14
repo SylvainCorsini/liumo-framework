@@ -1,5 +1,5 @@
 <?php
-namespace App\Bundles\Auth;
+namespace App\Classes;
 
 use Src\CoreClass;
 use Src\Http\HttpCookie;
