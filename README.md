@@ -29,6 +29,7 @@ Go to the wiki (https://github.com/scorsi/minimis-framework/wiki) to see all doc
 
 ### Next updates:
 - Entity manager
+- Validator.
 
 # License
 
