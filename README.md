@@ -21,11 +21,14 @@ Go to the wiki (https://github.com/scorsi/minimis-framework/wiki) to see all doc
 - YAML routing (with symfony yaml component).
 - Kint (debugging tool) and Whoops (event logger and interface).
 
-And some choices:
+### And some choices:
 
 - No heavy event handler.
 - No heavy dependencies injection.
 - No facades.
+
+### Next updates:
+- Entity manager
 
 # License
 
