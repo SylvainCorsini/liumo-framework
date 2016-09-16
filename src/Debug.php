@@ -10,7 +10,7 @@
 
 error_reporting(E_ALL);
 ini_set('log_errors', 'On');
-ini_set('error_log', __DIR__ . '/../app/log/error.log');
+ini_set('error_log', __DIR__ . '/../log/error.log');
 
 $whoops = new \Whoops\Run;
 if (DEVELOPMENT_ENVIRONMENT === true) {
