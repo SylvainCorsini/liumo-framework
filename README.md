@@ -28,7 +28,9 @@ Go to the wiki (https://github.com/scorsi/minimis-framework/wiki) to see all doc
 - No facades.
 
 ### Next updates:
-- Entity manager
+- Form builder.
+- CSRF protection.
+- Entity manager.
 - Validator.
 
 # License
