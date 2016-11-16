@@ -22,16 +22,12 @@ Go to the wiki (https://github.com/scorsi/minimis-framework/wiki) to see all doc
 - Kint (debugging tool) and Whoops (event logger and interface).
 
 ### And some choices:
-
 - No heavy event handler.
 - No heavy dependencies injection.
 - No facades.
 
 ### Next updates:
-- Form builder.
-- CSRF protection.
-- Entity manager.
-- Validator.
+- Propel2 as ORM.
 
 # License
 
