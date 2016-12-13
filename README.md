@@ -7,6 +7,8 @@
 
 A very light PHP framework.
 
+It is no longer in development, I am focusing to a new PHP7.1-only framework with all my own components.
+
 Go to the wiki (https://github.com/scorsi/minimis-framework/wiki) to see all docs. And learn how Minimis works.
 
 ## What's inside Minimis?
@@ -25,9 +27,6 @@ Go to the wiki (https://github.com/scorsi/minimis-framework/wiki) to see all doc
 - No heavy event handler.
 - No heavy dependencies injection.
 - No facades.
-
-### Next updates:
-- Propel2 as ORM.
 
 # License
 
