@@ -7,7 +7,7 @@
 
 A very light PHP framework.
 
-It is no longer in development, I am focusing to a new PHP7.1-only framework with all my own components.
+It is no longer in development, I am focusing to a new PHP7.1-only framework with all my own components. Please see the new right here: https://github.com/scorsi/bootlace-framework.
 
 Go to the wiki (https://github.com/scorsi/minimis-framework/wiki) to see all docs. And learn how Minimis works.
 
